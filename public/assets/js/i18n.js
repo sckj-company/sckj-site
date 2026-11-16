@@ -18,6 +18,7 @@ const sckjTranslations = {
     nav_contact: 'Contactos',
     nav_btn: 'Fale Connosco',
     nav_login:'Área SCKJ',
+    nav_portfolio: 'Portfólio',
 
     // Hero Section (Home)
     hero_badge: 'SCKJ — Prestação de Serviços & Comércio',
@@ -164,6 +165,9 @@ const sckjTranslations = {
     form_msg_ph: 'Descreva a sua solicitação, empresa ou projeto...',
     form_btn: 'Enviar Solicitação',
 
+    //Potfolio
+    nossos_projetos: 'Nossos Projetos',
+    conheca_algumas_solucoes: 'Conheça algumas das soluções digitais desenvolvidas pela SCKJ.',
     // Footer
     footer_desc: 'A SCKJ é uma empresa especializada em prestação de serviços e comércio geral: legalização e criação de empresas, tratamento documental, criação de sistemas empresariais e fornecimento corporativo.',
     footer_nav_title: 'Navegação',
@@ -186,6 +190,7 @@ const sckjTranslations = {
     nav_contact: 'Contact Us',
     nav_btn: 'Contact Us',
     nav_login: 'SCKJ Area',
+    nav_portfolio: 'Portfolio',
 
     // Hero Section
     hero_badge: 'SCKJ — Business Services & Commerce',
@@ -331,6 +336,9 @@ const sckjTranslations = {
     form_opt8: 'Other Inquiries',
     form_msg_ph: 'Describe your request, company, or project details...',
     form_btn: 'Send Request',
+    //Portfolio
+    nossos_projetos: 'Our Projects',
+    conheca_algumas_solucoes: 'Discover some of the digital solutions developed by SCKJ.',
 
     // Footer
     footer_desc: 'SCKJ is a premier corporate services and general commerce company: business legalization, document management, software development, and corporate supplies.',
@@ -354,6 +362,7 @@ const sckjTranslations = {
     nav_contact: '联系我们',
     nav_btn: '联系我们',
     nav_login: 'SCKJ 区域',
+    nav_portfolio: '文件夹',
 
     // Hero Section
     hero_badge: 'SCKJ — 企业综合服务与商贸',
@@ -499,6 +508,11 @@ const sckjTranslations = {
     form_opt8: '其他业务咨询',
     form_msg_ph: '请描述您的具体需求、公司情况或项目细节...',
     form_btn: '提交咨询',
+
+    //Potfolio
+     //Portfolio
+    nossos_projetos: '我们的项目',
+    conheca_algumas_solucoes: '探索由 SCKJ 开发的部分数字解决方案。',
 
     // Footer
     footer_desc: 'SCKJ 是专注于安哥拉企业综合服务与商贸的专业企业：公司设立注册、证件办理、企业系统开发及企业物资采购。',

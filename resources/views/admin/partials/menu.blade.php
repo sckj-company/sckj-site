@@ -33,6 +33,14 @@
         <a class="nav-link {{ request()->routeIs('admin.imagens.*') ? 'active' : '' }}"
            href="{{ route('admin.imagens.index') }}">Imagens</a>
     </li>
+    
+    <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('admin.portfolio.*') ? 'active' : '' }}"
+        href="{{ route('admin.portfolio.index') }}">
+            Portfólio
+        </a>
+    </li>
+
 
     {{-- Administração: só o Administrador --}}
     @if (auth()->user()->isAdmin())

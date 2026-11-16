@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SiteImageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 
 
 
@@ -67,6 +69,12 @@ Route::prefix('admin')
             Route::patch('/servicos/{servico}/aprovar', [ServiceController::class, 'aprovar'])->name('servicos.aprovar');
             Route::patch('/servicos/{servico}/rejeitar', [ServiceController::class, 'rejeitar'])->name('servicos.rejeitar');
             Route::delete('/servicos/{servico}', [ServiceController::class, 'destroy'])->name('servicos.destroy');
+            //portfólio
+            // Eliminar projetos do portfólio
+            Route::delete('/portfolio/{portfolio}', [AdminPortfolioController::class, 'destroy'])
+                ->name('portfolio.destroy');
+            Route::resource('portfolio', AdminPortfolioController::class)
+              ->except(['show', 'destroy']);
             // gestão de utilizadores
             Route::get('/utilizadores', [UserController::class, 'index'])->name('utilizadores.index');
             Route::get('/utilizadores/criar', [UserController::class, 'create'])->name('utilizadores.create');
@@ -84,6 +92,12 @@ Route::prefix('admin')
             ->where('pagina', '[a-z0-9_-]+')->name('textos.edit');
         Route::put('/textos/{pagina}', [SiteBlockController::class, 'update'])
             ->where('pagina', '[a-z0-9_-]+')->name('textos.update');
+
+
+        //Permissões para editar portfólio
+        // Portfólio
+        Route::delete('/portfolio/{portfolio}', [AdminPortfolioController::class, 'destroy'])
+        ->name('portfolio.destroy');
     });
 
 //----------------------------------------------------------------
@@ -108,3 +122,8 @@ Route::post('/contacts', [ContactController::class, 'enviar'])
     ->middleware('throttle:5,1')
     ->name('contacts.enviar');
 //-------------------Fim Contactos---------------------------
+
+//-------------------Portfolio------------------------------
+Route::get('/portfolio', [PortfolioController::class, 'index'])
+    ->name('portfolio.index');
+//-------------------Fim Portfolio---------------------------

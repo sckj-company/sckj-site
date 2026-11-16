@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Painel') - SCKJ</title>
+    <title>@yield('title', __('Painel')) - SCKJ</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap.min.css') }}">
     <style>
@@ -16,23 +16,44 @@
 </head>
 <body class="bg-light">
 
+@php($idiomas = [
+    'pt' => ['🇦🇴', 'Português (PT)'],
+    'en' => ['🇬🇧', 'English (EN)'],
+    'zh' => ['🇨🇳', '中文 (ZH)'],
+])
+
 <nav class="navbar bg-white border-bottom px-3">
     <div class="d-flex align-items-center gap-2">
         <button class="btn btn-outline-secondary d-md-none" type="button"
-                data-bs-toggle="collapse" data-bs-target="#menuLateral">Menu</button>
-        <a class="navbar-brand mb-0" href="{{ route('admin.dashboard') }}">SCKJ · Gestão</a>
+                data-bs-toggle="collapse" data-bs-target="#menuLateral">{{ __('Menu') }}</button>
+        <a class="navbar-brand mb-0" href="{{ route('admin.dashboard') }}">SCKJ · {{ __('Gestão') }}</a>
     </div>
 
-    <div class="d-flex align-items-center gap-3">
+    <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
         <span class="small text-muted d-none d-sm-inline">
             {{ auth()->user()->name }}
-            <span class="badge bg-secondary">{{ auth()->user()->isAdmin() ? 'Administrador' : 'Funcionário' }}</span>
+            <span class="badge bg-secondary">{{ auth()->user()->isAdmin() ? __('Administrador') : __('Funcionário') }}</span>
         </span>
-        <a href="{{ route('admin.conta.edit') }}" class="btn btn-sm btn-outline-secondary">A minha conta</a>
-        <a href="{{ route('home') }}" class="btn btn-sm btn-outline-primary" target="_blank">Ver site</a>
+
+        <div class="dropdown">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                {{ $idiomas[app()->getLocale()][0] ?? '' }} {{ strtoupper(app()->getLocale()) }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                @foreach ($idiomas as $codigo => [$bandeira, $nome])
+                    <li>
+                        <a class="dropdown-item {{ app()->getLocale() === $codigo ? 'active' : '' }}"
+                           href="{{ route('idioma', $codigo) }}">{{ $bandeira }} {{ $nome }}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <a href="{{ route('admin.conta.edit') }}" class="btn btn-sm btn-outline-secondary">{{ __('A minha conta') }}</a>
+        <a href="{{ route('home') }}" class="btn btn-sm btn-outline-primary" target="_blank">{{ __('Ver site') }}</a>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-sm btn-outline-danger">Sair</button>
+            <button type="submit" class="btn btn-sm btn-outline-danger">{{ __('Sair') }}</button>
         </form>
     </div>
 </nav>
@@ -64,7 +85,7 @@
     </div>
 </div>
 
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

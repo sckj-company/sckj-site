@@ -1,0 +1,21 @@
+{
+    "Área de gestão": "管理后台",
+"Email": "邮箱",
+"Palavra-passe": "密码",
+"Manter sessão iniciada": "保持登录状态",
+"Entrar": "登录",
+"Este campo é obrigatório.": "此项为必填项。",
+"Escreva um email válido.": "请输入有效的电子邮箱地址。",
+"Email ou palavra-passe incorretos.": "邮箱或密码不正确。",
+"Esta conta está desativada. Contacte o Administrador.": "此账户已被停用，请联系管理员。",
+    "Mensagens": "消息",
+    "Todas": "全部",
+    "Nova": "新消息",
+    "Lida": "已读",
+    "Respondida": "已回复",
+    "Nome": "姓名",
+    "Serviço": "服务",
+    "Estado": "状态",
+    "Abrir": "打开",
+    "Utilizadores": "用户"
+}

@@ -37,6 +37,7 @@
                               <li><a href="{{route('commerce')}}" data-i18n="nav_commerce">Comércio Geral</a></li>
                               <li><a href="{{route('faq')}}" data-i18n="nav_faq">FAQ</a></li>
                               <li><a href="{{route('contacts')}}" data-i18n="nav_contact">Contactos</a></li>
+                              <li><a href="{{route('portfolio.index')}}" data-i18n="nav_portfolio">Portfólio</a></li>
                               <li><a href="{{route('login') }}" data-i18n="nav_login">Área SCKJ</a></li>
                           </ul>
                       </nav>
