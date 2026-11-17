@@ -17,15 +17,15 @@ class UserController extends Controller
     private function mensagens(): array
     {
         return [
-            'required'       => 'Este campo é obrigatório.',
-            'string'         => 'Escreva um texto válido.',
-            'email'          => 'Escreva um email válido.',
-            'unique'         => 'Já existe um utilizador com este email.',
-            'confirmed'      => 'As palavras-passe não coincidem.',
-            'max'            => 'O texto é demasiado longo.',
-            'in'             => 'Escolha uma opção válida.',
-            'min'            => 'A palavra-passe tem de ter pelo menos :min caracteres.',
-            'password.regex' => 'A palavra-passe tem de ter letras e números.',
+            'required' => __('admin.val_required'),
+            'string' => __('admin.val_string'),
+            'email' => __('admin.val_email'),
+            'unique' => __('admin.val_unique'),
+            'confirmed' => __('admin.val_confirmed'),
+            'max' => __('admin.val_max'),
+            'in' => __('admin.val_in'),
+            'min' => __('admin.val_min'),
+            'password.regex' => __('admin.val_regex'),
         ];
     }
 
@@ -51,13 +51,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $dados = $request->validate([
-            'name'     => ['required', 'string', 'max:100'],
-            'email'    => ['required', 'email', 'max:150', 'unique:users,email'],
-            'role'     => ['required', Rule::in(self::PAPEIS)],
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:150', 'unique:users,email'],
+            'role' => ['required', Rule::in(self::PAPEIS)],
             'password' => ['required', 'string', 'min:10', self::REGRA_PASSWORD, 'confirmed'],
         ], $this->mensagens());
 
-        $utilizador = new User();
+        $utilizador = new User;
         $utilizador->name = $dados['name'];
         $utilizador->email = $dados['email'];
         $utilizador->password = Hash::make($dados['password']);
@@ -66,7 +66,7 @@ class UserController extends Controller
         $utilizador->save();
 
         return redirect()->route('admin.utilizadores.index')
-            ->with('sucesso', 'Utilizador criado. Peça-lhe que mude a palavra-passe em "A minha conta".');
+            ->with('sucesso', __('admin.flash_utilizador_criado'));
     }
 
     public function edit(User $utilizador)
@@ -77,9 +77,9 @@ class UserController extends Controller
     public function update(Request $request, User $utilizador)
     {
         $dados = $request->validate([
-            'name'     => ['required', 'string', 'max:100'],
-            'email'    => ['required', 'email', 'max:150', Rule::unique('users', 'email')->ignore($utilizador->id)],
-            'role'     => ['nullable', Rule::in(self::PAPEIS)],
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:150', Rule::unique('users', 'email')->ignore($utilizador->id)],
+            'role' => ['nullable', Rule::in(self::PAPEIS)],
             'password' => ['nullable', 'string', 'min:10', self::REGRA_PASSWORD, 'confirmed'],
         ], $this->mensagens());
 
@@ -90,7 +90,7 @@ class UserController extends Controller
 
         if ($papel !== 'admin' && $this->ultimoAdmin($utilizador)) {
             return back()->withInput()
-                ->with('erro', 'Tem de existir pelo menos um Administrador ativo.');
+                ->with('erro', __('admin.flash_admin_obrigatorio'));
         }
 
         $utilizador->name = $dados['name'];
@@ -103,22 +103,22 @@ class UserController extends Controller
 
         $utilizador->save();
 
-        return redirect()->route('admin.utilizadores.index')->with('sucesso', 'Utilizador guardado.');
+        return redirect()->route('admin.utilizadores.index')->with('sucesso', __('admin.flash_utilizador_guardado'));
     }
 
     public function alternar(Request $request, User $utilizador)
     {
         if ($utilizador->is($request->user())) {
-            return back()->with('erro', 'Não pode desativar a sua própria conta.');
+            return back()->with('erro', __('admin.flash_nao_desativar_proprio'));
         }
 
         if ($this->ultimoAdmin($utilizador)) {
-            return back()->with('erro', 'Tem de existir pelo menos um Administrador ativo.');
+            return back()->with('erro', __('admin.flash_admin_obrigatorio'));
         }
 
         $utilizador->ativo = ! $utilizador->ativo;
         $utilizador->save();
 
-        return back()->with('sucesso', $utilizador->ativo ? 'Conta ativada.' : 'Conta desativada.');
+        return back()->with('sucesso', $utilizador->ativo ? __('admin.flash_conta_ativada') : __('admin.flash_conta_desativada'));
     }
 }

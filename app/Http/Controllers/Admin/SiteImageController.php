@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\SiteImage;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 class SiteImageController extends Controller
 {
     //
-     public function index()
+    public function index()
     {
         $imagens = SiteImage::orderBy('pagina')->orderBy('id')->get();
 
@@ -27,14 +27,14 @@ class SiteImageController extends Controller
     {
         $dados = $request->validate([
             'ficheiro' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:3072'],
-            'alt_pt'   => ['nullable', 'string', 'max:255'],
-            'alt_en'   => ['nullable', 'string', 'max:255'],
-            'alt_zh'   => ['nullable', 'string', 'max:255'],
+            'alt_pt' => ['nullable', 'string', 'max:255'],
+            'alt_en' => ['nullable', 'string', 'max:255'],
+            'alt_zh' => ['nullable', 'string', 'max:255'],
         ], [
-            'image'    => 'O ficheiro tem de ser uma imagem.',
-            'mimes'    => 'Use uma imagem JPG, PNG ou WebP.',
-            'ficheiro.max' => 'A imagem é demasiado grande (máximo 3 MB).',
-            'max'      => 'O texto é demasiado longo.',
+            'image' => __('admin.val_imagem'),
+            'mimes' => __('admin.val_mimes'),
+            'ficheiro.max' => __('admin.val_imagem_grande'),
+            'max' => __('admin.val_max'),
         ]);
 
         $aviso = '';
@@ -56,8 +56,12 @@ class SiteImageController extends Controller
                 $real = $largura / $altura;
 
                 if (abs($real - $esperada) / $esperada > 0.15) {
-                    $aviso = " Atenção: a proporção da imagem ({$largura}×{$altura}) difere da recomendada "
-                        . "({$imagem->largura_rec}×{$imagem->altura_rec}), e pode aparecer cortada.";
+                    $aviso = ' '.__('admin.flash_imagem_proporcao', [
+                        'largura' => $largura,
+                        'altura' => $altura,
+                        'esperada_largura' => $imagem->largura_rec,
+                        'esperada_altura' => $imagem->altura_rec,
+                    ]);
                 }
             }
         }
@@ -67,7 +71,7 @@ class SiteImageController extends Controller
         $imagem->save();
 
         return redirect()->route('admin.imagens.index')
-            ->with('sucesso', 'Imagem guardada.' . $aviso);
+            ->with('sucesso', __('admin.flash_imagem_guardada').$aviso);
     }
 
     public function repor(SiteImage $imagem)
@@ -78,6 +82,6 @@ class SiteImageController extends Controller
 
         $imagem->update(['caminho' => null]);
 
-        return back()->with('sucesso', 'Imagem original reposta.');
+        return back()->with('sucesso', __('admin.flash_imagem_eliminada'));
     }
 }

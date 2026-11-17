@@ -17,20 +17,20 @@ class AccountController extends Controller
     {
         $request->validate([
             'password_atual' => ['required', 'current_password'],
-            'password'       => ['required', 'string', 'min:10', 'regex:/^(?=.*[A-Za-z])(?=.*\d).+$/', 'confirmed', 'different:password_atual'],
+            'password' => ['required', 'string', 'min:10', 'regex:/^(?=.*[A-Za-z])(?=.*\d).+$/', 'confirmed', 'different:password_atual'],
         ], [
-            'required'         => 'Este campo é obrigatório.',
-            'current_password' => 'A palavra-passe atual está incorreta.',
-            'min'              => 'A palavra-passe tem de ter pelo menos :min caracteres.',
-            'password.regex'   => 'A palavra-passe tem de ter letras e números.',
-            'confirmed'        => 'As palavras-passe não coincidem.',
-            'different'        => 'A nova palavra-passe tem de ser diferente da atual.',
+            'required' => __('admin.val_required'),
+            'current_password' => __('admin.val_current_password'),
+            'min' => __('admin.val_min'),
+            'password.regex' => __('admin.val_regex'),
+            'confirmed' => __('admin.val_confirmed'),
+            'different' => __('admin.val_different'),
         ]);
 
         $request->user()->forceFill([
             'password' => Hash::make($request->input('password')),
         ])->save();
 
-        return back()->with('sucesso', 'Palavra-passe alterada.');
+        return back()->with('sucesso', __('admin.flash_senha_alterada'));
     }
 }

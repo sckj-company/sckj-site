@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Alterar imagem')
+@section('title', __('admin.img_editar'))
 
 @section('content')
-    <a href="{{ route('admin.imagens.index') }}" class="btn btn-sm btn-outline-secondary mb-3">← Voltar</a>
+    <a href="{{ route('admin.imagens.index') }}" class="btn btn-sm btn-outline-secondary mb-3">{{ __('admin.voltar') }}</a>
     <h1 class="h3 mb-1">{{ $imagem->rotulo }}</h1>
     @if ($imagem->largura_rec)
-        <p class="text-muted">Tamanho recomendado: {{ $imagem->largura_rec }}×{{ $imagem->altura_rec }} px</p>
+        <p class="text-muted">{{ __('admin.img_tamanho_recomendado') }} {{ $imagem->largura_rec }}×{{ $imagem->altura_rec }} px</p>
     @endif
 
     <div class="row g-4">
@@ -21,7 +21,7 @@
                 @method('PUT')
 
                 <div class="mb-3">
-                    <label class="form-label">Nova imagem (JPG, PNG ou WebP, até 3 MB)</label>
+                    <label class="form-label">{{ __('admin.img_nova') }}</label>
                     <input type="file" name="ficheiro" accept=".jpg,.jpeg,.png,.webp"
                            class="form-control @error('ficheiro') is-invalid @enderror">
                     @error('ficheiro')
@@ -29,9 +29,9 @@
                     @enderror
                 </div>
 
-                @foreach (['pt' => 'Português', 'en' => 'English', 'zh' => '中文'] as $codigo => $nome)
+                @foreach (config('idiomas') as $codigo => $nome)
                     <div class="mb-2">
-                        <label class="form-label small mb-1">Descrição da imagem ({{ $nome }})</label>
+                        <label class="form-label small mb-1">{{ __('admin.img_descricao') }} ({{ $nome }})</label>
                         <input type="text" name="alt_{{ $codigo }}"
                                class="form-control @error('alt_' . $codigo) is-invalid @enderror"
                                value="{{ old('alt_' . $codigo, $imagem->{'alt_' . $codigo}) }}">
@@ -41,15 +41,15 @@
                     </div>
                 @endforeach
 
-                <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                <button type="submit" class="btn btn-primary mt-2">{{ __('admin.guardar') }}</button>
             </form>
 
             @if ($imagem->caminho)
                 <form action="{{ route('admin.imagens.repor', $imagem) }}" method="POST" class="mt-3"
-                      onsubmit="return confirm('Repor a imagem original do template?');">
+                      onsubmit="return confirm('{{ __('admin.img_confirmar_eliminar') }}');">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-outline-danger">Repor a imagem original</button>
+                    <button type="submit" class="btn btn-sm btn-outline-danger">{{ __('admin.img_eliminar') }}</button>
                 </form>
             @endif
         </div>

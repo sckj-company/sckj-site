@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Imagens')
+@section('title', __('admin.nav_imagens'))
 
 @section('content')
-    <h1 class="h3 mb-3">Imagens do site</h1>
+    <h1 class="h3 mb-3">{{ __('admin.img_titulo') }}</h1>
 
     <div class="row g-3">
         @forelse ($imagens as $img)
@@ -14,20 +14,20 @@
                     <div class="card-body">
                         <h2 class="h6 mb-1">{{ $img->rotulo }}</h2>
                         <p class="small text-muted mb-2">
-                            {{ \App\Models\SiteBlock::PAGINAS[$img->pagina] ?? ucfirst($img->pagina) }}
+                            {{ array_key_exists($img->pagina, \App\Models\SiteBlock::PAGINAS) ? __('admin.site_pagina_' . $img->pagina) : ucfirst($img->pagina) }}
                             @if ($img->largura_rec)
-                                · recomendado {{ $img->largura_rec }}×{{ $img->altura_rec }} px
+                                · {{ __('admin.img_recomendado') }} {{ $img->largura_rec }}×{{ $img->altura_rec }} px
                             @endif
                             @if ($img->caminho)
-                                · <span class="badge bg-info text-dark">Personalizada</span>
+                                · <span class="badge bg-info text-dark">{{ __('admin.img_personalizada') }}</span>
                             @endif
                         </p>
-                        <a href="{{ route('admin.imagens.edit', $img) }}" class="btn btn-sm btn-outline-primary">Alterar</a>
+                        <a href="{{ route('admin.imagens.edit', $img) }}" class="btn btn-sm btn-outline-primary">{{ __('admin.img_alterar') }}</a>
                     </div>
                 </div>
             </div>
         @empty
-            <p class="text-muted">Ainda não há imagens registadas. Corre o SiteImageSeeder.</p>
+            <p class="text-muted">{{ __('admin.img_sem') }}</p>
         @endforelse
     </div>
 @endsection

@@ -1,7 +1,6 @@
-
 @extends('admin.layouts.app')
 
-@section('title', 'Editar Projeto - Portfólio')
+@section('title', __('admin.pf_editar'))
 
 @section('content')
 
@@ -9,13 +8,13 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold">Novo Projeto</h2>
-            <p class="text-muted">Adiciona um projeto ao portfólio da SCKJ.</p>
+            <h2 class="fw-bold">{{ __('admin.pf_editar') }}</h2>
+            <p class="text-muted">{{ __('admin.pf_adicionar') }}</p>
         </div>
 
         <a href="{{ route('admin.portfolio.index') }}"
            class="btn btn-outline-secondary">
-            Voltar
+            {{ __('admin.voltar') }}
         </a>
     </div>
 
@@ -32,7 +31,7 @@
                 <div class="row g-3">
 
                     <div class="col-md-6">
-                        <label class="form-label">Nome do Projeto *</label>
+                        <label class="form-label">{{ __('admin.pf_nome_projeto') }} *</label>
                         <input type="text" name="title"
                                class="form-control"
                                value="{{ old('title', $portfolio->title) }}" required>
@@ -42,18 +41,26 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label">Categoria *</label>
-                        <input type="text" name="category"
-                               class="form-control"
-                               placeholder="Ex: Sistema de Gestão"
-                               value="{{ old('category') }}" required>
-                        @error('category')
+                        <label for="categoria_projecto_id" class="form-label">{{ __('admin.categoria') }} *</label>
+                        <select id="categoria_projecto_id" name="categoria_projecto_id"
+                                class="form-select @error('categoria_projecto_id') is-invalid @enderror" required>
+                            <option value="" disabled @selected(old('categoria_projecto_id', $portfolio->categoria_projecto_id) === null)>{{ __('admin.cat_selecione') }}</option>
+                            @foreach ($categorias as $id => $nome)
+                                <option value="{{ $id }}" @selected(old('categoria_projecto_id', $portfolio->categoria_projecto_id) == $id)>{{ $nome }}</option>
+                            @endforeach
+                        </select>
+                        @error('categoria_projecto_id')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
+                        @if (auth()->user()->isAdmin())
+                            <small class="text-muted d-block mt-1">
+                                <a href="{{ route('admin.categorias.create') }}">{{ __('admin.nav_criar_categoria') }}</a>
+                            </small>
+                        @endif
                     </div>
 
                     <div class="col-12">
-                        <label class="form-label">Descrição *</label>
+                        <label class="form-label">{{ __('admin.srv_descricao') }} *</label>
                         <textarea name="description"
                                   class="form-control"
                                   rows="4" required>{{ old('description') }}</textarea>
@@ -63,18 +70,18 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label">Tecnologias</label>
+                        <label class="form-label">{{ __('admin.pf_tecnologias') }}</label>
                         <input type="text" name="technologies"
                                class="form-control"
                                placeholder="Laravel, MySQL, Bootstrap"
                                value="{{ old('technologies') }}">
                         <small class="text-muted">
-                            Separa as tecnologias por vírgulas.
+                            {{ __('admin.pf_tec_help') }}
                         </small>
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label">Link da Demonstração</label>
+                        <label class="form-label">{{ __('admin.pf_link_demo') }}</label>
                         <input type="url" name="demo_url"
                                class="form-control"
                                placeholder="https://demo.exemplo.com"
@@ -85,12 +92,12 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label">Imagem do Projeto</label>
+                        <label class="form-label">{{ __('admin.pf_imagem_projeto') }}</label>
                         <input type="file" name="image"
                                class="form-control"
                                accept="image/jpeg,image/png,image/webp">
                         <small class="text-muted">
-                            JPG, PNG ou WEBP. Máximo 2 MB.
+                            {{ __('admin.pf_imagem_help') }}
                         </small>
                         @error('image')
                             <small class="text-danger">{{ $message }}</small>
@@ -98,23 +105,24 @@
                     </div>
 
                     <div class="col-md-3">
-                        <label class="form-label">Estado *</label>
+                        <label class="form-label">{{ __('admin.estado') }} *</label>
                         <select name="status" class="form-select" required>
-                            <option value="0">Rascunho</option>
-                            <option value="1">Publicado</option>
+                            <option value="0" @selected(old('status', (string) (int) $portfolio->status) === '0')>{{ __('admin.status_rascunho') }}</option>
+                            <option value="1" @selected(old('status', (string) (int) $portfolio->status) === '1')>{{ __('admin.status_publicado') }}</option>
                         </select>
                     </div>
 
                     <div class="col-md-3">
-                        <label class="form-label d-block">Destaque</label>
+                        <label class="form-label d-block">{{ __('admin.destaque') }}</label>
                         <div class="form-check mt-2">
                             <input type="checkbox"
                                    name="featured"
                                    value="1"
                                    class="form-check-input"
-                                   id="featured">
+                                   id="featured"
+                                   @checked(old('featured', $portfolio->featured))>
                             <label class="form-check-label" for="featured">
-                                Destacar projeto
+                                {{ __('admin.pf_destacar') }}
                             </label>
                         </div>
                     </div>
@@ -125,12 +133,12 @@
 
                 <div class="d-flex gap-2">
                     <button type="submit" class="btn btn-primary">
-                        Guardar Projeto
+                        {{ __('admin.pf_guardar') }}
                     </button>
 
                     <a href="{{ route('admin.portfolio.index') }}"
                        class="btn btn-light">
-                        Cancelar
+                        {{ __('admin.cancelar') }}
                     </a>
                 </div>
 

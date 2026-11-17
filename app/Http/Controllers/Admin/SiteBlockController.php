@@ -35,12 +35,12 @@ class SiteBlockController extends Controller
         abort_if($blocos->isEmpty(), 404);
 
         $request->validate([
-            'blocos'      => ['required', 'array'],
+            'blocos' => ['required', 'array'],
             'blocos.*.pt' => ['required', 'string', 'max:5000'],
             'blocos.*.en' => ['nullable', 'string', 'max:5000'],
             'blocos.*.zh' => ['nullable', 'string', 'max:5000'],
         ], [
-            'blocos.*.pt.required' => 'O texto em português é obrigatório.',
+            'blocos.*.pt.required' => __('admin.val_pt_obrigatorio'),
         ]);
 
         foreach ($blocos as $bloco) {
@@ -51,14 +51,13 @@ class SiteBlockController extends Controller
             }
 
             $bloco->update([
-                'valor_pt'   => $v['pt'] ?? null,
-                'valor_en'   => $v['en'] ?? null,
-                'valor_zh'   => $v['zh'] ?? null,
+                'valor_pt' => $v['pt'] ?? null,
+                'valor_en' => $v['en'] ?? null,
+                'valor_zh' => $v['zh'] ?? null,
                 'updated_by' => $request->user()->id,
             ]);
         }
 
-        return back()->with('sucesso', 'Textos guardados.');
+        return back()->with('sucesso', __('admin.flash_textos_guardados'));
     }
-
 }

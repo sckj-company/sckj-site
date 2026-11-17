@@ -1,37 +1,35 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Início')
+@section('title', __('admin.nav_inicio'))
 
 @section('content')
     @php
         $admin = auth()->user()->isAdmin();
 
         $cartoes = [
-            ['Mensagens', 'Pedidos enviados pelo formulário de contactos.',
+            [__('admin.dash_cartao_mensagens'), __('admin.dash_cartao_mensagens_desc'),
                 route('admin.mensagens.index'),
-                \App\Models\ContactMessage::where('status', 'nova')->count(), 'nova(s)'],
-            ['Textos', 'Textos das páginas e do rodapé, em três idiomas.',
+                \App\Models\ContactMessage::where('status', 'nova')->count(), __('admin.dash_novas')],
+            [__('admin.dash_cartao_textos'), __('admin.dash_cartao_textos_desc'),
                 route('admin.textos.index'), 0, ''],
-            ['Serviços', 'Criar e editar os serviços apresentados no site.',
+            [__('admin.dash_cartao_servicos'), __('admin.dash_cartao_servicos_desc'),
                 route('admin.servicos.index'), 0, ''],
-            ['Imagens', 'Trocar as imagens do site.',
+            [__('admin.dash_cartao_imagens'), __('admin.dash_cartao_imagens_desc'),
                 route('admin.imagens.index'), 0, ''],
         ];
 
         if ($admin) {
-            $cartoes[] = ['Aprovações', 'Serviços à espera de publicação.',
+            $cartoes[] = [__('admin.dash_cartao_aprovacoes'), __('admin.dash_cartao_aprovacoes_desc'),
                 route('admin.aprovacoes.index'),
-                \App\Models\Service::where('status', 'pendente')->count(), 'pendente(s)'];
-            $cartoes[] = ['Utilizadores', 'Contas de Administradores e Funcionários.',
+                \App\Models\Service::where('status', 'pendente')->count(), __('admin.dash_pendentes')];
+            $cartoes[] = [__('admin.dash_cartao_utilizadores'), __('admin.dash_cartao_utilizadores_desc'),
                 route('admin.utilizadores.index'), 0, ''];
         }
     @endphp
 
-    <h1 class="h3 mb-1">Olá, {{ auth()->user()->name }}</h1>
+    <h1 class="h3 mb-1">{{ __('admin.dash_ola') }}, {{ auth()->user()->name }}</h1>
     <p class="text-muted mb-4">
-        {{ $admin
-            ? 'Como Administrador, geres mensagens, conteúdo, aprovações e utilizadores.'
-            : 'Como Funcionário, vês as mensagens e geres o conteúdo do site. Os novos serviços ficam pendentes até o Administrador os aprovar.' }}
+        {{ $admin ? __('admin.dash_admin') : __('admin.dash_funcionario') }}
     </p>
 
     <div class="row g-3">
@@ -54,4 +52,3 @@
         @endforeach
     </div>
 @endsection
-

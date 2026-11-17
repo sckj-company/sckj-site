@@ -12,22 +12,22 @@ class ServiceController extends Controller
     private function regras(): array
     {
         return [
-            'titulo_pt'    => ['required', 'string', 'max:150'],
-            'titulo_en'    => ['nullable', 'string', 'max:150'],
-            'titulo_zh'    => ['nullable', 'string', 'max:150'],
+            'titulo_pt' => ['required', 'string', 'max:150'],
+            'titulo_en' => ['nullable', 'string', 'max:150'],
+            'titulo_zh' => ['nullable', 'string', 'max:150'],
             'descricao_pt' => ['required', 'string', 'max:2000'],
             'descricao_en' => ['nullable', 'string', 'max:2000'],
             'descricao_zh' => ['nullable', 'string', 'max:2000'],
-            'ordem'        => ['nullable', 'integer', 'min:0', 'max:9999'],
+            'ordem' => ['nullable', 'integer', 'min:0', 'max:9999'],
         ];
     }
 
     private function mensagens(): array
     {
         return [
-            'required' => 'Este campo é obrigatório.',
-            'max'      => 'O texto é demasiado longo (máximo :max caracteres).',
-            'integer'  => 'Escreva um número inteiro.',
+            'required' => __('admin.val_required'),
+            'max' => __('admin.val_max_chars'),
+            'integer' => __('admin.val_integer'),
         ];
     }
 
@@ -60,6 +60,7 @@ class ServiceController extends Controller
 
             if ($traduzidos === null) {
                 $falhou = true;
+
                 continue;
             }
 
@@ -98,18 +99,18 @@ class ServiceController extends Controller
         $admin = $request->user()->isAdmin();
 
         Service::create($dados + [
-            'status'      => $admin ? 'publicado' : 'pendente',
-            'created_by'  => $request->user()->id,
+            'status' => $admin ? 'publicado' : 'pendente',
+            'created_by' => $request->user()->id,
             'approved_by' => $admin ? $request->user()->id : null,
             'approved_at' => $admin ? now() : null,
         ]);
 
         $mensagem = $admin
-            ? 'Serviço publicado.'
-            : 'Serviço enviado para aprovação do Administrador.';
+            ? __('admin.flash_servico_publicado')
+            : __('admin.flash_servico_aprovacao');
 
         if ($falhou) {
-            $mensagem .= ' A tradução automática falhou: preencha o inglês e o chinês manualmente.';
+            $mensagem .= ' '.__('admin.flash_traducao_falhou');
         }
 
         return redirect()->route('admin.servicos.index')->with('sucesso', $mensagem);
@@ -136,10 +137,10 @@ class ServiceController extends Controller
 
         $servico->update($dados);
 
-        $mensagem = $reenviado ? 'Serviço reenviado para aprovação.' : 'Serviço guardado.';
+        $mensagem = $reenviado ? __('admin.flash_servico_reenviado') : __('admin.flash_servico_guardado');
 
         if ($falhou) {
-            $mensagem .= ' A tradução automática falhou: preencha o inglês e o chinês manualmente.';
+            $mensagem .= ' '.__('admin.flash_traducao_falhou');
         }
 
         return redirect()->route('admin.servicos.index')->with('sucesso', $mensagem);
@@ -160,45 +161,45 @@ class ServiceController extends Controller
     public function aprovar(Request $request, Service $servico)
     {
         if ($servico->status === 'publicado') {
-            return back()->with('erro', 'Este serviço já está publicado.');
+            return back()->with('erro', __('admin.flash_servico_ja_publicado'));
         }
 
         $servico->update([
-            'status'          => 'publicado',
-            'approved_by'     => $request->user()->id,
-            'approved_at'     => now(),
+            'status' => 'publicado',
+            'approved_by' => $request->user()->id,
+            'approved_at' => now(),
             'motivo_rejeicao' => null,
         ]);
 
-        return back()->with('sucesso', 'Serviço aprovado e publicado.');
+        return back()->with('sucesso', __('admin.flash_servico_aprovado'));
     }
 
     public function rejeitar(Request $request, Service $servico)
     {
         if ($servico->status !== 'pendente') {
-            return back()->with('erro', 'Só é possível rejeitar serviços pendentes.');
+            return back()->with('erro', __('admin.flash_servico_rejeitar_pendente'));
         }
 
         $motivo = trim((string) $request->input('motivo_rejeicao'));
 
         if ($motivo === '') {
-            return back()->with('erro', 'Escreva o motivo da rejeição.');
+            return back()->with('erro', __('admin.flash_motivo_obrigatorio'));
         }
 
         $servico->update([
-            'status'          => 'rejeitado',
+            'status' => 'rejeitado',
             'motivo_rejeicao' => mb_substr($motivo, 0, 500),
-            'approved_by'     => null,
-            'approved_at'     => null,
+            'approved_by' => null,
+            'approved_at' => null,
         ]);
 
-        return back()->with('sucesso', 'Serviço rejeitado. O Funcionário vê o motivo.');
+        return back()->with('sucesso', __('admin.flash_servico_rejeitado'));
     }
 
     public function destroy(Service $servico)
     {
         $servico->delete();
 
-        return redirect()->route('admin.servicos.index')->with('sucesso', 'Serviço eliminado.');
+        return redirect()->route('admin.servicos.index')->with('sucesso', __('admin.flash_servico_eliminado'));
     }
 }

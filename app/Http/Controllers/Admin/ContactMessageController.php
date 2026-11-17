@@ -24,7 +24,7 @@ class ContactMessageController extends Controller
 
         return view('admin.mensagens.index', compact('mensagens', 'estado'));
     }
-    
+
     public function show(ContactMessage $mensagem)
     {
         if ($mensagem->status === 'nova') {
@@ -33,16 +33,16 @@ class ContactMessageController extends Controller
 
         return view('admin.mensagens.show', compact('mensagem'));
     }
-    
+
     public function respondida(Request $request, ContactMessage $mensagem)
     {
         $mensagem->update([
-            'status'      => 'respondida',
+            'status' => 'respondida',
             'answered_by' => $request->user()->id,
             'answered_at' => now(),
         ]);
 
-        return back()->with('sucesso', 'Mensagem marcada como respondida.');
+        return back()->with('sucesso', __('admin.flash_msg_respondida'));
     }
 
     public function destroy(ContactMessage $mensagem)
@@ -50,7 +50,6 @@ class ContactMessageController extends Controller
         $mensagem->delete();
 
         return redirect()->route('admin.mensagens.index')
-            ->with('sucesso', 'Mensagem eliminada.');
+            ->with('sucesso', __('admin.flash_msg_eliminada'));
     }
-
 }

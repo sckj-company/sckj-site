@@ -1,45 +1,43 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Utilizadores')
+@section('title', __('admin.nav_utilizadores'))
 
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="h3 mb-0">Utilizadores</h1>
-        <a href="{{ route('admin.utilizadores.create') }}" class="btn btn-primary">Novo utilizador</a>
+        <h1 class="h3 mb-0">{{ __('admin.nav_utilizadores') }}</h1>
+        <a href="{{ route('admin.utilizadores.create') }}" class="btn btn-primary">{{ __('admin.usr_novo') }}</a>
     </div>
 
     <div class="card">
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-0">
                 <thead>
-                    <tr><th>Nome</th><th>Email</th><th>Papel</th><th>Estado</th><th></th></tr>
+                    <tr><th>{{ __('admin.nome') }}</th><th>{{ __('admin.email') }}</th><th>{{ __('admin.papel') }}</th><th>{{ __('admin.estado') }}</th><th></th></tr>
                 </thead>
                 <tbody>
                 @foreach ($utilizadores as $u)
                     <tr>
                         <td>
                             {{ $u->name }}
-                            @if ($u->is(auth()->user()))<small class="text-muted">(você)</small>@endif
+                            @if ($u->is(auth()->user()))<small class="text-muted">{{ __('admin.usr_voce') }}</small>@endif
                         </td>
                         <td>{{ $u->email }}</td>
-                        <td>{{ $u->isAdmin() ? 'Administrador' : 'Funcionário' }}</td>
+                        <td>{{ $u->isAdmin() ? __('admin.administrador') : __('admin.funcionario') }}</td>
                         <td>
-                            @if ($u->ativo)
-                                <span class="badge bg-success">Ativo</span>
-                            @else
-                                <span class="badge bg-secondary">Desativado</span>
-                            @endif
+                            <span class="badge bg-{{ $u->ativo ? 'success' : 'secondary' }}">
+                                {{ $u->ativo ? __('admin.status_ativo') : __('admin.status_desativado') }}
+                            </span>
                         </td>
                         <td class="text-end">
-                            <a href="{{ route('admin.utilizadores.edit', $u) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                            <a href="{{ route('admin.utilizadores.edit', $u) }}" class="btn btn-sm btn-outline-primary">{{ __('admin.editar') }}</a>
 
                             @unless ($u->is(auth()->user()))
                                 <form action="{{ route('admin.utilizadores.alternar', $u) }}" method="POST" class="d-inline"
-                                      onsubmit="return confirm('Alterar o estado desta conta?');">
+                                      onsubmit="return confirm('{{ __('admin.usr_alterar_estado') }}');">
                                     @csrf
                                     @method('PATCH')
                                     <button type="submit" class="btn btn-sm btn-outline-{{ $u->ativo ? 'danger' : 'success' }}">
-                                        {{ $u->ativo ? 'Desativar' : 'Ativar' }}
+                                        {{ $u->ativo ? __('admin.usr_desativar') : __('admin.usr_ativar') }}
                                     </button>
                                 </form>
                             @endunless
