@@ -47,12 +47,13 @@
                   <div class="vl-hero-btn d-none d-lg-flex align-items-center justify-content-end gap-2 text-end">
                       <div class="vl-lang-dropdown dropdown">
                           <button class="btn btn-sm dropdown-toggle vl-lang-btn" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                              <span id="current-lang-flag">🇦🇴</span> <span id="current-lang-code">PT</span>
+                              <img id="current-lang-flag" src="{{ bandeira_url(app()->getLocale()) }}" alt="" width="20" height="14"> <span id="current-lang-code">PT</span>
                           </button>
                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                              <li><a class="dropdown-item" href="{{ route('idioma', 'pt') }}">🇦🇴 Português (PT)</a></li>
-                              <li><a class="dropdown-item" href="{{ route('idioma', 'en') }}">🇬🇧 English (EN)</a></li>
-                              <li><a class="dropdown-item" href="{{ route('idioma', 'zh') }}">🇨🇳 中文 (ZH)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'pt') }}"><img src="{{ bandeira_url('pt') }}" alt="" width="20" height="14" class="me-2"> Português (PT)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'en') }}"><img src="{{ bandeira_url('en') }}" alt="" width="20" height="14" class="me-2"> English (EN)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'zh') }}"><img src="{{ bandeira_url('zh') }}" alt="" width="20" height="14" class="me-2"> 中文 (ZH)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'pt_zh') }}"><img src="{{ bandeira_url('pt_zh') }}" alt="" width="20" height="14" class="me-2"> {{ config('idiomas.pt_zh') }}</a></li>
                           </ul>
                       </div>
                       <span class="vl-btn-wrap">
@@ -62,12 +63,13 @@
                   <div class="vl-header-action-item d-flex align-items-center justify-content-end gap-2 d-lg-none">
                       <div class="vl-lang-dropdown dropdown">
                           <button class="btn btn-sm dropdown-toggle vl-lang-btn" type="button" id="langDropdownMob" data-bs-toggle="dropdown" aria-expanded="false">
-                              <span id="current-lang-flag-mob">🇦🇴</span> <span id="current-lang-code-mob">PT</span>
+                              <img id="current-lang-flag-mob" src="{{ bandeira_url(app()->getLocale()) }}" alt="" width="20" height="14"> <span id="current-lang-code-mob">PT</span>
                           </button>
                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdownMob">
-                              <li><a class="dropdown-item" href="{{ route('idioma', 'pt') }}">🇦🇴 Português (PT)</a></li>
-                              <li><a class="dropdown-item" href="{{ route('idioma', 'en') }}">🇬🇧 English (EN)</a></li>
-                              <li><a class="dropdown-item" href="{{ route('idioma', 'zh') }}">🇨🇳 中文 (ZH)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'pt') }}"><img src="{{ bandeira_url('pt') }}" alt="" width="20" height="14" class="me-2"> Português (PT)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'en') }}"><img src="{{ bandeira_url('en') }}" alt="" width="20" height="14" class="me-2"> English (EN)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'zh') }}"><img src="{{ bandeira_url('zh') }}" alt="" width="20" height="14" class="me-2"> 中文 (ZH)</a></li>
+                              <li><a class="dropdown-item" href="{{ route('idioma', 'pt_zh') }}"><img src="{{ bandeira_url('pt_zh') }}" alt="" width="20" height="14" class="me-2"> {{ config('idiomas.pt_zh') }}</a></li>
                           </ul>
                       </div>
                       <button type="button" class="vl-offcanvas-toggle" aria-label="Abrir Menu">
@@ -95,9 +97,10 @@
 
         <div class="vl-offcanvas-lang mb-30 text-center">
             <div class="btn-group w-100" role="group">
-                <a class="btn btn-outline-light btn-sm" id="mob-lang-pt" href="{{ route('idioma', 'pt') }}">🇦🇴 PT</a>
-                <a class="btn btn-outline-light btn-sm" id="mob-lang-en" href="{{ route('idioma', 'en') }}">🇬🇧 EN</a>
-                <a class="btn btn-outline-light btn-sm" id="mob-lang-zh" href="{{ route('idioma', 'zh') }}">🇨🇳 中文</a>
+                <a class="btn btn-outline-light btn-sm" id="mob-lang-pt" href="{{ route('idioma', 'pt') }}"><img src="{{ bandeira_url('pt') }}" alt="" width="20" height="14" class="me-1"> PT</a>
+                <a class="btn btn-outline-light btn-sm" id="mob-lang-en" href="{{ route('idioma', 'en') }}"><img src="{{ bandeira_url('en') }}" alt="" width="20" height="14" class="me-1"> EN</a>
+                <a class="btn btn-outline-light btn-sm" id="mob-lang-zh" href="{{ route('idioma', 'zh') }}"><img src="{{ bandeira_url('zh') }}" alt="" width="20" height="14" class="me-1"> 中文</a>
+                <a class="btn btn-outline-light btn-sm" id="mob-lang-pt_zh" href="{{ route('idioma', 'pt_zh') }}"><img src="{{ bandeira_url('pt_zh') }}" alt="" width="20" height="14" class="me-1"> PT/ZH</a>
             </div>
         </div>
 

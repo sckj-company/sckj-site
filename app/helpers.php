@@ -22,3 +22,12 @@ if (! function_exists('imagem_alt')) {
         return SiteImage::alt($chave);
     }
 }
+
+if (! function_exists('bandeira_url')) {
+    function bandeira_url(string $codigo): string
+    {
+        $codigo = array_key_exists($codigo, config('idiomas')) ? $codigo : 'pt';
+
+        return asset('assets/img/flags/'.$codigo.'.svg');
+    }
+}

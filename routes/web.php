@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\CategoriaProjectoController;
 use App\Http\Controllers\Admin\ContactMessageController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SiteBlockController;
@@ -37,7 +38,7 @@ Route::prefix('admin')
     ->name('admin.')
     ->middleware(['auth', 'ativo', 'role:admin,funcionario'])
     ->group(function () {
-        Route::view('/', 'admin.dashboard')->name('dashboard');
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // Administrador e Funcionário
         Route::get('/minha-conta', [AccountController::class, 'edit'])->name('conta.edit');

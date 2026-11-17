@@ -6,29 +6,32 @@
     <title>@yield('title', __('admin.painel')) - SCKJ</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/fontawesome.css') }}">
+    <link rel="shortcut icon" href="{{asset('assets/img/logo/fav-logo1.png')}}" type="image/x-icon">
     <style>
         .admin-menu .nav-link { color: #212529; border-radius: .5rem; }
         .admin-menu .nav-link:hover { background: #e9ecef; }
         .admin-menu .nav-link.active { background: #0d6efd; color: #fff; }
         .admin-menu .nav-link.disabled { color: #adb5bd; }
+        .admin-brand-logo { width: 122px; height: 50px; object-fit: contain; }
     </style>
     @stack('styles')
 </head>
 <body class="bg-light">
 
-@php($bandeiras = ['pt' => '🇦🇴', 'en' => '🇬🇧', 'zh' => '🇨🇳'])
-
 <nav class="navbar bg-white border-bottom px-3">
     <div class="d-flex align-items-center gap-2">
         <button class="btn btn-outline-secondary d-md-none" type="button"
                 data-bs-toggle="collapse" data-bs-target="#menuLateral">{{ __('admin.menu') }}</button>
-        <a class="navbar-brand mb-0" href="{{ route('admin.dashboard') }}">SCKJ · {{ __('admin.gestao') }}</a>
+        <a class="navbar-brand mb-0 d-flex align-items-center gap-2" href="{{ route('admin.dashboard') }}">
+            <img src="{{ asset('assets/img/logo/logo6.png') }}" alt="SCKJ" class="admin-brand-logo">
+            <span>{{ __('admin.gestao_site') }}</span>
+        </a>
     </div>
 
     <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
         <span class="small text-muted d-none d-sm-inline">
-            {{ auth()->user()->name }}
-            <span class="badge bg-secondary">{{ auth()->user()->isAdmin() ? __('admin.administrador') : __('admin.funcionario') }}</span>
+            <i class="fa-solid fa-user-check fa-fw me-1" aria-hidden="true"></i>{{ auth()->user()->name }}
         </span>
 
         <div class="dropdown">
@@ -36,25 +39,33 @@
                     data-bs-toggle="dropdown" aria-expanded="false" aria-label="{{ __('admin.idioma') }}"
                     title="{{ __('admin.idioma') }}">
                 <span class="small text-muted d-none d-lg-inline">{{ __('admin.idioma') }}:</span>
-                {{ $bandeiras[app()->getLocale()] ?? '' }} {{ config('idiomas')[app()->getLocale()] ?? strtoupper(app()->getLocale()) }}
+                <img src="{{ bandeira_url(app()->getLocale()) }}" alt="" width="20" height="14" class="me-1">
+                {{ config('idiomas')[app()->getLocale()] ?? strtoupper(app()->getLocale()) }}
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminIdioma">
                 @foreach (config('idiomas') as $codigo => $nome)
                     <li>
                         <a class="dropdown-item {{ app()->getLocale() === $codigo ? 'active' : '' }}"
                            href="{{ route('idioma', $codigo) }}" lang="{{ $codigo }}">
-                            {{ $bandeiras[$codigo] ?? '' }} {{ $nome }} ({{ strtoupper($codigo) }})
+                            <img src="{{ bandeira_url($codigo) }}" alt="" width="20" height="14" class="me-2">
+                            {{ $nome }} ({{ strtoupper($codigo) }})
                         </a>
                     </li>
                 @endforeach
             </ul>
         </div>
 
-        <a href="{{ route('admin.conta.edit') }}" class="btn btn-sm btn-outline-secondary">{{ __('admin.conta_minha') }}</a>
-        <a href="{{ route('home') }}" class="btn btn-sm btn-outline-primary" target="_blank">{{ __('admin.ver_site') }}</a>
+        <a href="{{ route('admin.conta.edit') }}" class="btn btn-sm btn-outline-secondary">
+            <i class="fa-solid fa-user-gear me-1" aria-hidden="true"></i>{{ __('admin.conta_minha') }}
+        </a>
+        <a href="{{ route('home') }}" class="btn btn-sm btn-outline-primary" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square me-1" aria-hidden="true"></i>{{ __('admin.ver_site') }}
+        </a>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-sm btn-outline-danger">{{ __('admin.sair') }}</button>
+            <button type="submit" class="btn btn-sm btn-outline-danger">
+                <i class="fa-solid fa-right-from-bracket me-1" aria-hidden="true"></i>{{ __('admin.sair') }}
+            </button>
         </form>
     </div>
 </nav>

@@ -10,7 +10,7 @@ class AdminLanguageTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_admin_panel_offers_portuguese_english_and_chinese(): void
+    public function test_admin_panel_offers_all_languages(): void
     {
         $user = User::factory()->create([
             'role' => 'admin',
@@ -21,13 +21,15 @@ class AdminLanguageTest extends TestCase
 
         $response->assertOk();
 
-        foreach (['pt', 'en', 'zh'] as $codigo) {
+        foreach (['pt', 'en', 'zh', 'pt_zh'] as $codigo) {
             $response->assertSee(route('idioma', $codigo), false);
+            $response->assertSee(bandeira_url($codigo), false);
         }
 
         $response->assertSee('Português');
         $response->assertSee('English');
         $response->assertSee('中文');
+        $response->assertSee('Português / 中文');
     }
 
     public function test_admin_panel_follows_the_selected_language(): void
@@ -43,6 +45,7 @@ class AdminLanguageTest extends TestCase
         $this->get(route('admin.dashboard'))
             ->assertOk()
             ->assertSee('lang="pt"', false)
+            ->assertSee('Gestão do Site')
             ->assertSee('Início')
             ->assertSee('Mensagens');
 
@@ -50,6 +53,7 @@ class AdminLanguageTest extends TestCase
         $this->get(route('admin.dashboard'))
             ->assertOk()
             ->assertSee('lang="en"', false)
+            ->assertSee('Site Management')
             ->assertSee('Home')
             ->assertSee('Messages');
 
@@ -57,8 +61,17 @@ class AdminLanguageTest extends TestCase
         $this->get(route('admin.dashboard'))
             ->assertOk()
             ->assertSee('lang="zh"', false)
+            ->assertSee('网站管理')
             ->assertSee('首页')
             ->assertSee('消息');
+
+        $this->get(route('idioma', 'pt_zh'))->assertRedirect();
+        $this->get(route('admin.dashboard'))
+            ->assertOk()
+            ->assertSee('lang="pt_zh"', false)
+            ->assertSee('Gestão do Site / 网站管理')
+            ->assertSee('Início / 首页')
+            ->assertSee('Mensagens / 消息');
     }
 
     public function test_login_heading_follows_the_selected_language(): void
@@ -71,12 +84,19 @@ class AdminLanguageTest extends TestCase
         $this->get(route('idioma', 'en'))->assertRedirect();
         $this->get(route('login'))
             ->assertOk()
-            ->assertSee('Sign in to your account');
+            ->assertSee('Sign in to your account')
+            ->assertSee(bandeira_url('en'), false);
 
         $this->get(route('idioma', 'zh'))->assertRedirect();
         $this->get(route('login'))
             ->assertOk()
             ->assertSee('登录账户');
+
+        $this->get(route('idioma', 'pt_zh'))->assertRedirect();
+        $this->get(route('login'))
+            ->assertOk()
+            ->assertSee('Iniciar Sessão / 登录账户')
+            ->assertSee(bandeira_url('pt_zh'), false);
     }
 
     public function test_category_menu_link_is_translated(): void

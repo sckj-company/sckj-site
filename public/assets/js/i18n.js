@@ -6,7 +6,7 @@
 const sckjTranslations = {
   pt: {
     lang_name: 'Português',
-    lang_flag: '🇦🇴',
+    lang_flag: '/assets/img/flags/pt.svg',
     lang_code: 'PT',
 
     // Navigation
@@ -178,7 +178,7 @@ const sckjTranslations = {
 
   en: {
     lang_name: 'English',
-    lang_flag: '🇬🇧',
+    lang_flag: '/assets/img/flags/en.svg',
     lang_code: 'EN',
 
     // Navigation
@@ -350,7 +350,7 @@ const sckjTranslations = {
 
   zh: {
     lang_name: '中文',
-    lang_flag: '🇨🇳',
+    lang_flag: '/assets/img/flags/zh.svg',
     lang_code: 'ZH',
 
     // Navigation
@@ -523,6 +523,24 @@ const sckjTranslations = {
   }
 };
 
+// Idioma combinado: mostra cada texto em português e chinês.
+const bilinguePtZh = {};
+const chavesPtZh = new Set([
+  ...Object.keys(sckjTranslations.pt),
+  ...Object.keys(sckjTranslations.zh),
+]);
+
+chavesPtZh.forEach(function (chave) {
+  const pt = sckjTranslations.pt[chave] ?? sckjTranslations.zh[chave] ?? '';
+  const zh = sckjTranslations.zh[chave] ?? pt;
+  bilinguePtZh[chave] = pt === zh ? pt : `${pt} / ${zh}`;
+});
+
+bilinguePtZh.lang_name = 'Português / 中文';
+bilinguePtZh.lang_code = 'PT/ZH';
+bilinguePtZh.lang_flag = '/assets/img/flags/pt_zh.svg';
+sckjTranslations.pt_zh = bilinguePtZh;
+
 function setLanguage(lang) {
   if (!sckjTranslations[lang]) {
     lang = 'pt';
@@ -536,12 +554,12 @@ function setLanguage(lang) {
   // Update navbar selector display
   const flagEl = document.getElementById('current-lang-flag');
   const codeEl = document.getElementById('current-lang-code');
-  if (flagEl) flagEl.textContent = t.lang_flag;
+  if (flagEl) flagEl.src = t.lang_flag;
   if (codeEl) codeEl.textContent = t.lang_code;
 
   const flagMobEl = document.getElementById('current-lang-flag-mob');
   const codeMobEl = document.getElementById('current-lang-code-mob');
-  if (flagMobEl) flagMobEl.textContent = t.lang_flag;
+  if (flagMobEl) flagMobEl.src = t.lang_flag;
   if (codeMobEl) codeMobEl.textContent = t.lang_code;
 
   // Update mobile active state

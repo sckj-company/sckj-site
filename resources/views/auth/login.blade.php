@@ -50,7 +50,10 @@
         <div class="text-center mt-3 small">
             @foreach (config('idiomas') as $codigo => $nome)
                 <a href="{{ route('idioma', $codigo) }}"
-                   class="mx-2 {{ app()->getLocale() === $codigo ? 'fw-bold' : '' }}">{{ $nome }}</a>
+                   class="mx-2 {{ app()->getLocale() === $codigo ? 'fw-bold' : '' }}">
+                    <img src="{{ bandeira_url($codigo) }}" alt="" width="20" height="14" class="me-1">
+                    {{ $nome }}
+                </a>
             @endforeach
         </div>
     </div>
