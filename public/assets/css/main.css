@@ -13688,21 +13688,13 @@ Location:
 
 .row-bg3 .vl-main-menu ul > li > a,
 .homepage1-body .vl-main-menu ul > li > a {
-  font-size: 15px !important;
-  padding: 8px 12px !important;
+  font-size: clamp(14px, 1.3vw, 18px) !important;
+  padding: 8px clamp(4px, 0.5vw, 12px) !important;
   white-space: nowrap !important;
   font-weight: 500 !important;
   letter-spacing: -0.2px !important;
   display: inline-block !important;
   transition: all 0.2s ease !important;
-}
-
-@media (min-width: 992px) and (max-width: 1240px) {
-  .row-bg3 .vl-main-menu ul > li > a,
-  .homepage1-body .vl-main-menu ul > li > a {
-    font-size: 13.5px !important;
-    padding: 6px 7px !important;
-  }
 }
 
 .row-bg3 .vl-hero-btn {
@@ -13765,6 +13757,279 @@ Location:
   padding: 180px 0 110px 0 !important;
   height: auto !important;
   min-height: auto !important;
+}
+
+/* Automatic service photo gallery behind the home hero */
+.hero1-section-area > .container,
+.inner-page-hero-area > .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-gallery,
+.hero-gallery__slide,
+.hero-gallery__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-gallery {
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-gallery__slide {
+  inset: -3%;
+  z-index: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.15s ease, transform 7s ease-out, filter 780ms ease;
+  will-change: opacity, transform;
+}
+
+.hero-gallery__slide.is-active {
+  z-index: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* A foto seguinte entra pelo lado enquanto a atual avança com zoom. */
+.hero-gallery__slide.is-peeking {
+  z-index: 1;
+  opacity: 0.72;
+  transform: translateX(6%) scale(1.04);
+  transition: opacity 780ms ease,
+              transform 780ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Fase 1: a foto desloca-se e aproxima-se mantendo-se visível. */
+.hero-gallery__slide.is-shifting {
+  z-index: 2;
+  filter: brightness(1.04);
+  transform: translateX(-4.5%) scale(1.07);
+  transition: transform 380ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              filter 380ms ease;
+}
+
+/* Fase 2: continua o movimento e desaparece. */
+.hero-gallery__slide.is-leaving {
+  z-index: 2;
+  opacity: 0;
+  filter: brightness(1.08);
+  transform: translateX(-9%) scale(1.13);
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 400ms ease,
+              filter 400ms ease;
+}
+
+.hero-gallery__shade {
+  z-index: 3;
+  background:
+    linear-gradient(180deg, rgba(4, 18, 32, 0.74) 0%, rgba(4, 18, 32, 0.42) 42%, rgba(4, 18, 32, 0.84) 100%),
+    linear-gradient(90deg, rgba(4, 18, 32, 0.48), rgba(4, 18, 32, 0.12));
+}
+
+.hero-gallery__brand {
+  position: absolute;
+  z-index: 4;
+  top: 118px;
+  right: clamp(16px, 4vw, 56px);
+  width: 128px;
+}
+
+.hero-gallery__brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+}
+
+.hero-gallery__brand.is-flashing img {
+  animation: heroGalleryLogoIn 1.1s ease both;
+}
+
+@keyframes heroGalleryLogoIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.86);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-gallery__controls {
+  position: absolute;
+  z-index: 4;
+  right: clamp(16px, 4vw, 56px);
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-gallery__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0 0 2px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(4, 18, 32, 0.55);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-gallery__nav:hover,
+.hero-gallery__nav:focus-visible {
+  background: rgba(26, 95, 151, 0.75);
+  transform: scale(1.08);
+}
+
+.hero-gallery__dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-gallery__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-gallery__dot:hover,
+.hero-gallery__dot:focus-visible {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.hero-gallery__dot.is-active {
+  background: #ffffff;
+  transform: scale(1.45);
+}
+
+/* Contagem decrescente discreta: avisa que a foto está prestes a mudar. */
+.hero-gallery__progress {
+  position: absolute;
+  left: 42px;
+  right: 42px;
+  bottom: -10px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+.hero-gallery__progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.45), #ffffff);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.hero-gallery__progress.is-running > span {
+  animation: heroGalleryProgress 5200ms linear forwards;
+}
+
+.hero-gallery__progress.is-paused > span {
+  animation-play-state: paused;
+}
+
+@keyframes heroGalleryProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes heroGalleryCaptionIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-gallery-sync].is-exiting {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+
+[data-gallery-sync].is-changing {
+  animation: heroGalleryCaptionIn 0.7s ease both;
+}
+
+@media (max-width: 991px) {
+  .hero-gallery__brand {
+    top: 96px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-gallery__controls {
+    bottom: 20px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-gallery__brand {
+    display: none;
+  }
+
+  .hero-gallery__controls {
+    gap: 8px;
+    bottom: 14px;
+    right: 14px;
+  }
+
+  .hero-gallery__nav {
+    width: 26px;
+    height: 26px;
+    font-size: 19px;
+  }
+
+  .hero-gallery__dot {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gallery__slide,
+  .hero-gallery__progress > span,
+  [data-gallery-sync],
+  .hero-gallery__brand img {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 @media (max-width: 991px) {

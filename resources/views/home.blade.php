@@ -7,15 +7,17 @@
     
 <!--===== HERO AREA STARTS =======-->
 <div class="hero1-section-area" id="home">
+  @include('portals.hero-gallery')
+
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 col-md-11 text-center">
         <div class="hero1-header heading1">
           <h5 data-aos="fade-up" data-aos-duration="800"><span><img src="{{asset('assets/img/icons/sub-logo1.svg')}}" alt=""></span><span data-i18n="hero_badge">SCKJ — Prestação de Serviços & Comércio</span></h5>
           <div class="space20"></div>
-          <h1 class="text-anime-style-3" data-i18n="hero_title">Gestão Documental, Criação de Empresas e Sistemas Tecnológicos</h1>
+          <h1 class="text-anime-style-3" data-i18n="gallery_srv1" data-gallery-sync="title" aria-live="polite">Criação de Empresas</h1>
           <div class="space24"></div>
-          <p data-aos="fade-up" data-aos-duration="900" data-i18n="hero_desc" class="hero-desc-centered">Apoiamos o crescimento do seu negócio: tratamos de toda a documentação legal e processos de abertura de empresas, desenvolvemos sistemas empresariais à medida e fornecemos bens comerciais essenciais.</p>
+          <p data-aos="fade-up" data-aos-duration="900" data-i18n="gallery_srv1_desc" data-gallery-sync="desc" aria-live="polite" class="hero-desc-centered">Abertura completa: estatutos, NIF, registo comercial e alvarás.</p>
           <div class="space36"></div>
           <div class="btn-area1 justify-content-center" data-aos="fade-up" data-aos-duration="1000">
             <a href="{{route('services')}}" class="vl-btn1"><span data-i18n="hero_btn_services">Conhecer Serviços</span> <i class="fa-solid fa-arrow-right"></i></a>
@@ -45,8 +47,8 @@
                 <a href="{{route('commerce')}}" class="hero-feature-card text-decoration-none">
                   <div class="icon"><i class="fa-solid fa-boxes-packing"></i></div>
                   <div class="text">
-                    <h6 data-i18n="nav_commerce">Comércio Geral & Fornecimento</h6>
-                    <span data-i18n="hero_feat3_tag">Informática, Papelaria e Consumíveis</span>
+                    <h6 data-i18n="nav_commerce">Comércio Geral & Consultoria</h6>
+                    <span data-i18n="hero_feat3_tag">RH, Contabilidade, Ambiental, Informática...</span>
                   </div>
                 </a>
               </div>
@@ -99,9 +101,7 @@
           <div class="space24"></div>
           <h2 class="text-anime-style-3" data-i18n="about_title">O Parceiro Estratégico para Legalizar, Estruturar e Digitalizar a Sua Empresa</h2>
           <div class="space16"></div>
-          <p data-aos="fade-left" data-aos-duration="800" data-i18n="about_p1">A <strong>SCKJ</strong> é uma empresa especializada em prestação de serviços corporativos e comércio geral. Eliminamos a burocracia dos processos empresariais para que os nossos clientes foquem no crescimento das suas operações.</p>
-          <div class="space16"></div>
-          <p data-aos="fade-left" data-aos-duration="850" data-i18n="about_p2">Desde a constituição formal de novas entidades até ao desenvolvimento de sistemas digitais personalizados e fornecimento de materiais e equipamentos, garantimos soluções completas com rigor, segurança e transparência.</p>
+          <p data-aos="fade-left" data-aos-duration="800" data-i18n="about_p1">A <strong>SCKJ</strong> é uma empresa especializada em prestação de serviços corporativos e comércio geral. Eliminamos a burocracia dos processos empresariais para que os nossos clientes foquem no crescimento das suas operações.</p>  
           <div class="space28"></div>
           <div class="row" data-aos="fade-left" data-aos-duration="900">
             <div class="col-lg-6 col-md-6">
@@ -161,60 +161,88 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="800">
-        <div class="service1-boxarea">
-          <div class="icons">
-            <img src="{{asset('assets/img/icons/service-icon1.svg')}}" alt="">
-          </div>
-          <div class="arrow">
-            <a href="{{route('services')}}"><i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-          <div class="space24"></div>
-          <a href="{{route('services')}}" data-i18n="srv1_title">Criação e Legalização de Empresas</a>
-          <div class="space16"></div>
-          <p data-i18n="srv1_desc">Processo completo de abertura de empresas: redacção de estatutos, registo comercial (Guichet Único), obtenção de NIF empresarial, alvarás e publicação formal.</p>
-          <div class="space24"></div>
-          <h5>01</h5>
+    <div class="row  gy-4">
+      
+<div class="col-lg-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-duration="800">
+    <div class="service1-boxarea w-100 h-100 d-flex flex-column">
+        <div class="icons">
+            <img src="{{ asset('assets/img/icons/service-icon1.svg') }}" alt="">
         </div>
+
+        <div class="arrow">
+            <a href="{{ route('services') }}"><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="space24"></div>
+
+        <a href="{{ route('services') }}" data-i18n="srv1_title">
+            Criação e Legalização de Empresas
+        </a>
+
+        <div class="space16"></div>
+
+        <p data-i18n="srv1_desc">
+            Processo completo de abertura de empresas: redacção de estatutos,
+            registo comercial (Guichet Único), obtenção de NIF empresarial,
+            alvarás e publicação formal.
+        </p>
+
+        <div class="space24 mt-auto"></div>
+
+        <h5>01</h5>
+    </div>
+</div>
+
+      <div class="col-lg-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-duration="900">
+          <div class="service1-boxarea w-100 h-100 d-flex flex-column">
+              <div class="icons">
+                  <img src="{{ asset('assets/img/icons/service-icon2.svg') }}" alt="">
+              </div>
+
+              <div class="arrow">
+                  <a href="{{ route('services') }}"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+
+              <div class="space24"></div>
+
+              <a href="{{ route('services') }}" data-i18n="srv2_title">
+                  Tratamento e Gestão de Documentos
+              </a>
+
+              <div class="space16"></div>
+
+              <p data-i18n="srv2_desc">
+                  Assessoria na obtenção e renovação de licenças comerciais,
+                  certidões fiscais e judiciais, conformidade legal, homologações
+                  e regularização de expedientes.
+              </p>
+
+              <div class="space24 mt-auto"></div>
+
+              <h5>02</h5>
+          </div>
       </div>
 
       <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="900">
-        <div class="service1-boxarea">
-          <div class="icons">
-            <img src="{{asset('assets/img/icons/service-icon2.svg')}}" alt="">
-          </div>
-          <div class="arrow">
-            <a href="{{route('services')}}"><i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-          <div class="space24"></div>
-          <a href="{{route('services')}}" data-i18n="srv2_title">Tratamento e Gestão de Documentos</a>
-          <div class="space16"></div>
-          <p data-i18n="srv2_desc">Assessoria na obtenção e renovação de licenças comerciais, certidões fiscais e judiciais, conformidade legal, homologações e regularização de expedientes.</p>
-          <div class="space24"></div>
-          <h5>02</h5>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="service1-boxarea">
+        <div class="service1-boxarea w-100 h-100 d-flex flex-column">
           <div class="icons">
             <img src="{{asset('assets/img/icons/service-icon6.svg')}}" alt="">
           </div>
           <div class="arrow">
             <a href="{{route('services')}}"><i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <div class="space24"></div>
+          <div class="space16"></div>
           <a href="{{route('services')}}" data-i18n="srv3_title">Criação de Sistemas para Empresas</a>
           <div class="space16"></div>
           <p data-i18n="srv3_desc">Desenvolvimento de softwares e sistemas de gestão à medida (ERP, faturação, controle de stock, fluxo de caixa e gestão de clientes) para otimizar os seus processos.</p>
-          <div class="space24"></div>
+          <div class="space24 mt-auto"></div>
           <h5>03</h5>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="1100">
-        <div class="service1-boxarea">
+      <div class="col-lg-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-duration="1100">
+        
+        <div class="service1-boxarea w-100 h-100 d-flex flex-column">
           <div class="icons">
             <img src="{{asset('assets/img/icons/service-icon5.svg')}}" alt="">
           </div>
@@ -222,16 +250,17 @@
             <a href="{{route('services')}}"><i class="fa-solid fa-arrow-right"></i></a>
           </div>
           <div class="space24"></div>
-          <a href="{{route('services')}}" data-i18n="srv4_title">Websites & Plataformas Digitais</a>
+          <a href="{{route('services')}}" data-i18n="srv4_title">Consultoria AIPEX</a>
           <div class="space16"></div>
-          <p data-i18n="srv4_desc">Criação de websites profissionais, portais corporativos e plataformas digitais interativas para dar máxima visibilidade e credibilidade à sua marca.</p>
-          <div class="space24"></div>
+          <p data-i18n="srv4_desc">Consultoria especializada no apoio a investidores e empresas que pretendem investir, operar e expandir negócios em Angola. Prestamos assistência na estruturação de projectos de investimento privado, preparação documental, relacionamento institucional.</p>
+          <div class="space24 mt-auto"></div>
           <h5>04</h5>
         </div>
+
       </div>
 
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="1200">
-        <div class="service1-boxarea">
+      <div class="col-lg-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-duration="1200">
+        <div class="service1-boxarea w-100 h-100 d-flex flex-column">
           <div class="icons">
             <img src="{{asset('assets/img/icons/service-icon3.svg')}}" alt="">
           </div>
@@ -242,13 +271,13 @@
           <a href="{{route('services')}}">Consultoria & Apoio Administrativo</a>
           <div class="space16"></div>
           <p data-i18n="srv5_desc">Aconselhamento técnico para estruturação corporativa, organização documental de arquivos, assessoria tributária preliminar e planeamento operacional.</p>
-          <div class="space24"></div>
+          <div class="space24 mt-auto"></div>
           <h5>05</h5>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="1300">
-        <div class="service1-boxarea">
+      <div class="col-lg-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-duration="1300">
+        <div class="service1-boxarea w-100 h-100 d-flex flex-column">
           <div class="icons">
             <img src="{{asset('assets/img/icons/service-icon4.svg')}}" alt="">
           </div>
@@ -258,8 +287,8 @@
           <div class="space24"></div>
           <a href="{{route('services')}}" data-i18n="srv6_title">Comércio Geral & Fornecimento</a>
           <div class="space16"></div>
-          <p>Fornecimento institucional de equipamentos informáticos, periféricos, consumíveis de escritório e mercadorias sob encomenda para o dia a dia da sua organização.</p>
-          <div class="space24"></div>
+          <p data-i18n="srv6_desc">Fornecimento institucional de equipamentos informáticos, periféricos, consumíveis de escritório e mercadorias sob encomenda para o dia a dia da sua organização.</p>
+          <div class="space24 mt-auto"></div>
           <h5>06</h5>
         </div>
       </div>
@@ -279,23 +308,23 @@
           <div class="space24"></div>
           <h2 class="text-anime-style-3" data-i18n="comm_title">Fornecimento Corporativo Ágil e Equipamentos para o Seu Negócio</h2>
           <div class="space16"></div>
-          <p data-aos="fade-left" data-aos-duration="800" data-i18n="comm_desc">Na área de comércio geral, a <strong>SCKJ</strong> abastece a sua empresa com produtos seleccionados, rapidez logística e preços altamente competitivos.</p>
+          <p data-aos="fade-left" data-aos-duration="800" data-i18n="comm_desc">NPrestamos serviços de contabilidade e gestão de recursos humanos para empresas, empreendedores e organizações. Apoiamos os nossos clientes no cumprimento das obrigações fiscais e contabilísticas, na organização financeira e na gestão eficiente dos seus colaboradores.</p>
           <div class="space24"></div>
           <div class="bg-progress" data-aos="fade-left" data-aos-duration="900">
             <div class="progress-bar">
-              <label><span data-i18n="comm_item1">Equipamentos de Informática & Redes</span> <span data-i18n="comm_sub1">Computadores, Servidores, Impressoras</span></label>
+              <label><span data-i18n="comm_item1">Organização e processamento da contabilidade;</span></label>
               <div class="progress">
                   <div class="progress-inner" style="width: 98%;"></div>
               </div>
             </div>
             <div class="progress-bar">
-              <label><span data-i18n="comm_item2">Materiais de Escritório & Papelaria</span> <span data-i18n="comm_sub2">Consumíveis, Toners, Suprimentos</span></label>
+              <label><span data-i18n="comm_item2">Preparação de mapas e relatórios financeiros;</span></label>
               <div class="progress">
                   <div class="progress-inner" style="width: 100%;"></div>
               </div>
             </div>
             <div class="progress-bar">
-              <label><span data-i18n="comm_item3">Fornecimento Diversificado sob Encomenda</span> <span data-i18n="comm_sub3">Bens & Mercadorias Corporativas</span></label>
+              <label><span data-i18n="comm_item3">Apoio no cumprimento das obrigações fiscais;</span></label>
               <div class="progress">
                   <div class="progress-inner" style="width: 96%;"></div>
               </div>
@@ -510,14 +539,16 @@
                             @if (session('sucesso'))
                                  <div class="alert alert-success">{{ session('sucesso') }}</div>
                             @endif
-                            
+                            <div class="space16"></div>
                             <form action="{{ route('contacts.enviar') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="input-area">
                                             <input type="text" name="nome" 
-                                            class="form-control @error('nome') is-invalid @enderror" placeholder="Nome Completo*" value="{{ old('nome') }}" data-i18n-ph="form_name_ph" >
+                                            class="form-control @error('nome') is-invalid @enderror"
+                                             placeholder="Nome Completo*" value="{{ old('nome') }}" 
+                                             data-i18n-ph="form_name_ph" >
                                             @error('nome') 
                                                  <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -527,6 +558,7 @@
                                     <div class="col-lg-6">
                                         <div class="input-area">
                                             <div class="input-group">
+                                          
                                             <select name="prefixo" class="form-select @error('prefixo') is-invalid @enderror"
                                                     style="max-width: 50%;" aria-label="Prefixo do país">
                                                 @foreach (config('paises') as $iso => $pais)
@@ -535,9 +567,10 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-
-                                            <input type="tel" name="telefone" class="form-control @error('telefone') is-invalid @enderror"
-                                             placeholder="Telefone / WhatsApp*" value="{{ old('telefone') }}" data-i18n-ph="form_phone_ph" >
+                                            <input type="tel" name="telefone"
+                                             class="form-control @error('telefone') is-invalid @enderror"
+                                             placeholder="Telefone / WhatsApp*" value="{{ old('telefone') }}"
+                                              data-i18n-ph="form_phone_ph" >
                                              </div>
                                              @error('prefixo')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -549,14 +582,18 @@
                                     </div>
 
                                     <div class="col-lg-12">
-                                        <div class="input-area">
-                                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" 
-                                            placeholder="Endereço de E-mail*" value="{{ old('email') }}" data-i18n-ph="form_email_ph">
-                                            @error('email')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>         
+                                      <div class="input-area mb-3">
+                                          <input type="email" name="email"
+                                              class="form-control @error('email') is-invalid @enderror"
+                                              placeholder="Endereço de E-mail*"
+                                              value="{{ old('email') }}"
+                                              data-i18n-ph="form_email_ph">
+
+                                          @error('email')
+                                              <div class="invalid-feedback">{{ $message }}</div>
+                                          @enderror
+                                      </div>
+                                  </div>      
 
                                     <div class="col-lg-12">
                                     <div class="input-area mb-3">

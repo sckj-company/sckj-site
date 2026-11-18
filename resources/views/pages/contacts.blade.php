@@ -7,6 +7,7 @@
 
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-page-hero-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    @include('portals.hero-gallery')
     <div class="container">
         <div class="row">
             <div class="col-lg-8 m-auto">
@@ -64,10 +65,9 @@
                             <div class="icons">
                                 <img src="{{asset('assets/img/icons/time2.svg')}}" alt="Horário">
                             </div>
-                            <div class="content">    
+                            <div class="content">
                                 <h4 data-i18n="contact_time_title">Horário de Atendimento</h4>
                                 <a>{!! nl2br(e(conteudo('Horário.horario'))) !!}</a>
-                                
                             </div>
                         </div>
                     </div>
@@ -76,8 +76,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="img1 reveal image-anime">
-                            <img src="{{imagem('Contactos.atendimento','assets/img/all-images/others/others-img2.png?v=2')}}" alt="{{ imagem_alt('Contactos.atendimento'),"SCKJ Atendimento ao Cliente"}}">
-                        </div>
+                            <img src="{{imagem('home.atendimento','assets/img/all-images/others/others-img2.png?v=2')}}" alt="{{ imagem_alt('home.atendimento'),"SCKJ Atendimento ao Cliente"}}">
+                          </div>
                     </div>
 
                     <div class="col-lg-6">
@@ -88,14 +88,16 @@
                             @if (session('sucesso'))
                                  <div class="alert alert-success">{{ session('sucesso') }}</div>
                             @endif
-                            
+                            <div class="space16"></div>
                             <form action="{{ route('contacts.enviar') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="input-area">
                                             <input type="text" name="nome" 
-                                            class="form-control @error('nome') is-invalid @enderror" placeholder="Nome Completo*" value="{{ old('nome') }}" data-i18n-ph="form_name_ph" >
+                                            class="form-control @error('nome') is-invalid @enderror"
+                                             placeholder="Nome Completo*" value="{{ old('nome') }}" 
+                                             data-i18n-ph="form_name_ph" >
                                             @error('nome') 
                                                  <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -105,6 +107,7 @@
                                     <div class="col-lg-6">
                                         <div class="input-area">
                                             <div class="input-group">
+                                          
                                             <select name="prefixo" class="form-select @error('prefixo') is-invalid @enderror"
                                                     style="max-width: 50%;" aria-label="Prefixo do país">
                                                 @foreach (config('paises') as $iso => $pais)
@@ -113,9 +116,10 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-
-                                            <input type="tel" name="telefone" class="form-control @error('telefone') is-invalid @enderror"
-                                             placeholder="Telefone / WhatsApp*" value="{{ old('telefone') }}" data-i18n-ph="form_phone_ph" >
+                                            <input type="tel" name="telefone"
+                                             class="form-control @error('telefone') is-invalid @enderror"
+                                             placeholder="Telefone / WhatsApp*" value="{{ old('telefone') }}"
+                                              data-i18n-ph="form_phone_ph" >
                                              </div>
                                              @error('prefixo')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -127,14 +131,18 @@
                                     </div>
 
                                     <div class="col-lg-12">
-                                        <div class="input-area">
-                                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" 
-                                            placeholder="Endereço de E-mail*" value="{{ old('email') }}" data-i18n-ph="form_email_ph">
-                                            @error('email')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>         
+                                      <div class="input-area mb-3">
+                                          <input type="email" name="email"
+                                              class="form-control @error('email') is-invalid @enderror"
+                                              placeholder="Endereço de E-mail*"
+                                              value="{{ old('email') }}"
+                                              data-i18n-ph="form_email_ph">
+
+                                          @error('email')
+                                              <div class="invalid-feedback">{{ $message }}</div>
+                                          @enderror
+                                      </div>
+                                  </div>      
 
                                     <div class="col-lg-12">
                                     <div class="input-area mb-3">

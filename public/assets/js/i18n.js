@@ -22,14 +22,35 @@ const sckjTranslations = {
 
     // Hero Section (Home)
     hero_badge: 'SCKJ — Prestação de Serviços & Comércio',
-    hero_title: 'Gestão Documental, Criação de Empresas e Sistemas Tecnológicos',
-    hero_desc: 'Apoiamos o crescimento do seu negócio: tratamos de toda a documentação legal e processos de abertura de empresas, desenvolvemos sistemas empresariais à medida e fornecemos bens comerciais essenciais.',
     hero_btn_services: 'Conhecer Serviços',
     hero_btn_contact: 'Fale Connosco',
     hero_feat1_tag: 'Guichet Único, NIF e Estatutos',
     hero_feat2_tag: 'ERPs, Faturação e Softwares',
-    hero_feat3_tag: 'Informática, Papelaria e Consumíveis',
+    hero_feat3_tag: 'RH, Contabilidade, Ambiental, Informática...',
 
+    // Home hero photo gallery
+    gallery_srv1: 'Criação de Empresas',
+    gallery_srv2: 'Gestão de Documentos',
+    gallery_srv3: 'Consultoria Ambiental',
+    gallery_srv4: 'Gestão de Recursos Humanos',
+    gallery_srv5: 'Assessoria Jurídica',
+    gallery_srv6: 'Consultoria de Contabilidade',
+    gallery_srv7: 'Agentes DHL (Importação e Exportação)',
+    gallery_srv8: 'Consultoria de Viagem',
+    gallery_srv9: 'Vendas de Extintores',
+    gallery_srv10: 'Consultoria AIPEX',
+    gallery_srv11: 'Suporte de Sistemas',
+    gallery_srv1_desc: 'Abertura completa: estatutos, NIF, registo comercial e alvarás.',
+    gallery_srv2_desc: 'Licenças, certidões e conformidade legal sempre em dia.',
+    gallery_srv3_desc: 'Prestamos serviços de avaliação ambiental, licenciamento, gestão de resíduos, monitorização e conformidade com a legislação ambiental aplicável.',
+    gallery_srv4_desc: 'Recrutamento, contratos e gestão de pessoal para a sua equipa.',
+    gallery_srv5_desc: 'Apoio legal em contratos, disputas e decisões empresariais.',
+    gallery_srv6_desc: 'Contas, impostos e relatórios financeiros sob controlo.',
+    gallery_srv7_desc: 'Envios internacionais com desalfandegamento e entrega rápida.',
+    gallery_srv8_desc: 'Vistos, reservas e itinerários para viagens de negócio.',
+    gallery_srv9_desc: 'Somos uma empresa especializada na comercialização de extintores e equipamentos de combate a incêndios, oferecendo soluções adequadas para empresas, estabelecimentos comerciais, condomínios e residências.',
+    gallery_srv10_desc: 'Consultoria e assessoria a investidores e empresas que pretendem investir em Angola ou expandir os seus negócios para mercados internacionais, apoiando-os na preparação, organização e acompanhamento dos processos junto da AIPEX e de outras entidades competentes.',
+    gallery_srv11_desc: 'Manutenção, backups e assistência técnica para os seus sistemas.',
     // About Section
     about_badge: 'Sobre a SCKJ',
     about_title: 'O Parceiro Estratégico para Legalizar, Estruturar e Digitalizar a Sua Empresa',
@@ -56,14 +77,14 @@ const sckjTranslations = {
     srv3_title: 'Criação de Sistemas para Empresas',
     srv3_desc: 'Desenvolvimento de softwares e sistemas de gestão à medida (ERP, faturação, controle de stock, fluxo de caixa e gestão de clientes) para otimizar os seus processos.',
 
-    srv4_title: 'Websites & Plataformas Digitais',
-    srv4_desc: 'Criação de websites profissionais, portais corporativos e plataformas digitais interativas para dar máxima visibilidade e credibilidade à sua marca.',
+    srv4_title: 'Consultoria AIPEX',
+    srv4_desc: 'Consultoria especializada no apoio a investidores e empresas que pretendem investir, operar e expandir negócios em Angola. Prestamos assistência na estruturação de projectos de investimento privado, preparação documental, relacionamento institucional.',
 
     srv5_title: 'Consultoria & Apoio à Gestão',
     srv5_desc: 'Aconselhamento técnico para estruturação corporativa, organização documental de arquivos, assessoria tributária preliminar e planeamento operacional.',
 
-    srv6_title: 'Comércio: Equipamentos de Informática',
-    srv6_desc: 'Venda e fornecimento institucional de computadores, servidores, periféricos, consumíveis e mercadorias sob encomenda para a sua organização.',
+    srv6_title: 'Comércio Geral & Fornecimento de Extintores',
+    srv6_desc: 'Comercializamos extintores de incêndio para residências, empresas, lojas, armazéns, escritórios, viaturas e instalações industriais. Ajudamos o cliente a escolher o tipo e a capacidade adequados ao risco existente, fornecendo equipamentos para diferentes classes de incêndio.',
 
     srv7_title: 'Comércio: Materiais de Escritório',
     srv7_desc: 'Fornecimento regular de consumíveis de escritório, toners, papelaria em geral e artigos administrativos para manter a sua empresa sempre abastecida.',
@@ -76,13 +97,13 @@ const sckjTranslations = {
 
     // Commerce Dedicated Page
     comm_badge: 'Comércio Geral & Fornecimento',
-    comm_title: 'Fornecimento Corporativo Ágil e Equipamentos para o Seu Negócio',
-    comm_desc: 'Na área de comércio geral, a SCKJ abastece a sua empresa com produtos seleccionados, rapidez logística e preços altamente competitivos.',
-    comm_item1: 'Equipamentos de Informática & Redes',
+    comm_title: 'Consultoria de Contabilidade e Recursos Humanos para Empresas',
+    comm_desc: 'Prestamos serviços de contabilidade e gestão de recursos humanos para empresas, empreendedores e organizações. Apoiamos os nossos clientes no cumprimento das obrigações fiscais e contabilísticas, na organização financeira e na gestão eficiente dos seus colaboradores.',
+    comm_item1: 'Organização e processamento da contabilidade;',
     comm_sub1: 'Computadores, Servidores, Impressoras',
-    comm_item2: 'Materiais de Escritório & Papelaria',
+    comm_item2: 'Preparação de mapas e relatórios financeiros;',
     comm_sub2: 'Consumíveis, Toners, Suprimentos',
-    comm_item3: 'Fornecimento Diversificado sob Encomenda',
+    comm_item3: 'Apoio no cumprimento das obrigações fiscais;',
     comm_sub3: 'Bens & Mercadorias Corporativas',
     comm_btn: 'Pedir Cotação de Fornecimento',
 
@@ -194,13 +215,35 @@ const sckjTranslations = {
 
     // Hero Section
     hero_badge: 'SCKJ — Business Services & Commerce',
-    hero_title: 'Document Management, Company Formation & Tech Systems',
-    hero_desc: 'We power your business growth: full corporate legal documentation and company registration, custom software and business systems, and essential commercial supply.',
     hero_btn_services: 'Our Services',
     hero_btn_contact: 'Contact Us',
     hero_feat1_tag: 'Registration, NIF & By-laws',
     hero_feat2_tag: 'ERPs, Invoicing & Software',
-    hero_feat3_tag: 'IT Hardware, Stationery & Supplies',
+    hero_feat3_tag: 'HR, Accounting, Environmental, IT...',
+
+    // Home hero photo gallery
+    gallery_srv1: 'Business Start-ups',
+    gallery_srv2: 'Document Management',
+    gallery_srv3: 'Environmental Consulting',
+    gallery_srv4: 'Human Resources Management',
+    gallery_srv5: 'Legal Advisory',
+    gallery_srv6: 'Accounting Consulting',
+    gallery_srv7: 'DHL Agents (Import & Export)',
+    gallery_srv8: 'Travel Consulting',
+    gallery_srv9: 'Fire Extinguisher Sales',
+    gallery_srv10: 'AIPEX Consulting',
+    gallery_srv11: 'Systems Support',
+    gallery_srv1_desc: 'Full company setup: bylaws, tax ID, registration and permits.',
+    gallery_srv2_desc: 'Licenses, certificates and legal compliance always up to date.',
+    gallery_srv3_desc: 'We provide services in environmental assessment, permitting, waste management, monitoring, and compliance with applicable environmental legislation.',
+    gallery_srv4_desc: 'Recruitment, contracts and HR management for your team.',
+    gallery_srv5_desc: 'Legal support for contracts, disputes and business decisions.',
+    gallery_srv6_desc: 'Bookkeeping, taxes and financial reports under control.',
+    gallery_srv7_desc: 'International shipping with customs clearance and fast delivery.',
+    gallery_srv8_desc: 'Visas, bookings and itineraries for business travel.',
+    gallery_srv9_desc: 'We are a company specialised in the sale of fire extinguishers and firefighting equipment, offering suitable solutions for companies, commercial premises, condominiums and homes.',
+    gallery_srv10_desc: 'Consulting and advisory services for investors and companies looking to invest in Angola or expand their businesses into international markets, providing support in the preparation, organization, and management of processes with AIPEX and other relevant authorities.',
+    gallery_srv11_desc: 'Maintenance, backups and technical support for your systems.',
 
     // About Section
     about_badge: 'About SCKJ',
@@ -228,14 +271,14 @@ const sckjTranslations = {
     srv3_title: 'Business Software & ERP Systems',
     srv3_desc: 'Development of custom corporate software and management systems (certified invoicing, ERP, inventory tracking, cash flow, and client relationship management).',
 
-    srv4_title: 'Websites & Digital Platforms',
-    srv4_desc: 'Creation of professional websites, corporate portals, and responsive digital platforms to provide maximum visibility and credibility to your brand.',
+    srv4_title: 'AIPEX Consulting',
+    srv4_desc: 'Consultancy specializing in supporting investors and companies that intend to invest, operate, and expand their businesses in Angola. We provide assistance with the structuring of private investment projects, document preparation, and institutional relations.',
 
     srv5_title: 'Business Consulting & Management',
     srv5_desc: 'Technical consulting for corporate structuring, document archives organization, administrative advisory, and operational planning.',
 
-    srv6_title: 'Commerce: IT & Equipment Supply',
-    srv6_desc: 'Institutional procurement and supply of computer hardware, peripherals, office consumables, and customized corporate goods.',
+    srv6_title: 'General Trading & Supply of Fire Extinguishers',
+    srv6_desc: 'We sell fire extinguishers for homes, businesses, shops, warehouses, offices, vehicles, and industrial facilities. We assist clients in selecting the type and capacity best suited to the specific risks present, providing equipment designed for various classes of fire.',
 
     srv7_title: 'Commerce: Office Supplies & Paper',
     srv7_desc: 'Regular delivery of office consumables, printer toner, stationery, and administrative goods to keep your company fully stocked and operational.',
@@ -248,13 +291,13 @@ const sckjTranslations = {
 
     // Commerce Dedicated Page
     comm_badge: 'General Commerce & Procurement',
-    comm_title: 'Agile Corporate Supply and Essential Equipment for Your Business',
-    comm_desc: 'In general commerce, SCKJ supplies your organization with selected products, fast logistics, and highly competitive pricing.',
-    comm_item1: 'IT Equipment & Networking',
+    comm_title: 'Accounting and Human Resources Consulting for Businesses',
+    comm_desc: 'We provide accounting and human resources management services for companies, entrepreneurs, and organizations. We support our clients in meeting their tax and accounting obligations, organizing their finances, and efficiently managing their employees.',
+    comm_item1: 'Organization and processing of accounting;',
     comm_sub1: 'Computers, Servers, Printers',
-    comm_item2: 'Office Supplies & Stationery',
+    comm_item2: 'Preparation of financial charts and reports;',
     comm_sub2: 'Consumables, Toners, Paper',
-    comm_item3: 'Custom Institutional Procurement',
+    comm_item3: 'Support in fulfilling tax obligations;',
     comm_sub3: 'Goods & Corporate Supplies',
     comm_btn: 'Request Procurement Quote',
 
@@ -366,13 +409,35 @@ const sckjTranslations = {
 
     // Hero Section
     hero_badge: 'SCKJ — 企业综合服务与商贸',
-    hero_title: '企业文件办理、公司注册与管理系统开发',
-    hero_desc: '全面赋能您的在安企业：办理各类合法证照与公司注册设立、量身定制企业管理系统与软件、提供专业高效的商业物资采购与设备供应。',
     hero_btn_services: '了解服务',
     hero_btn_contact: '立即咨询',
     hero_feat1_tag: '一站式注册、税号与章程',
     hero_feat2_tag: 'ERP系统、发票与定制软件',
-    hero_feat3_tag: 'IT设备、办公用品与商业物资',
+    hero_feat3_tag: '人力资源、会计、环境、IT……',
+
+    // Home hero photo gallery
+    gallery_srv1: '企业注册',
+    gallery_srv2: '文件管理',
+    gallery_srv3: '环境咨询',
+    gallery_srv4: '人力资源管理',
+    gallery_srv5: '法律顾问',
+    gallery_srv6: '会计咨询',
+    gallery_srv7: 'DHL代理（进出口）',
+    gallery_srv8: '旅行咨询',
+    gallery_srv9: '灭火器销售',
+    gallery_srv10: 'AIPEX咨询',
+    gallery_srv11: '系统支持',
+    gallery_srv1_desc: '一站式公司注册：章程、税号、商业登记及许可证。',
+    gallery_srv2_desc: '各类执照、证明与法律合规，全程跟进。',
+    gallery_srv3_desc: '我们提供环境评估、许可办理、废物管理、监测以及确保符合相关环境法规等方面的服务。',
+    gallery_srv4_desc: '招聘、合同及员工人事管理服务。',
+    gallery_srv5_desc: '合同、纠纷与企业决策的法律支持。',
+    gallery_srv6_desc: '账务、税务与财务报表专业管理。',
+    gallery_srv7_desc: '国际快递、报关清关与快速配送。',
+    gallery_srv8_desc: '签证、预订与商务行程安排。',
+    gallery_srv9_desc: '我们是一家专业销售灭火器及消防设备的公司，为企业、商业场所、住宅小区及家庭提供合适的消防解决方案。',
+    gallery_srv10_desc: '为有意在安哥拉投资或将业务拓展至国际市场的投资者及企业提供咨询与顾问服务，协助其筹备、组织并管理与安哥拉私人投资和出口促进局（AIPEX）及其他相关主管部门之间的各项流程。',
+    gallery_srv11_desc: '系统维护、数据备份与技术支持。',
 
     // About Section
     about_badge: '关于 SCKJ',
@@ -400,14 +465,14 @@ const sckjTranslations = {
     srv3_title: '企业管理系统与软件开发 (ERP)',
     srv3_desc: '按需定制开发企业管理软件与ERP系统：合规发票开具、库存进销存管理、现金流管控、客户与销售管理，全面提升管理效率。',
 
-    srv4_title: '企业官网与数字化平台建设',
-    srv4_desc: '打造专业企业官方网站、门户平台及响应式系统，提升品牌公信力与国际化形象，助您高效获客。',
+    srv4_title: 'AIPEX 咨询',
+    srv4_desc: '我们是一家专业咨询机构，致力于为有意在安哥拉进行投资、运营及拓展业务的投资者和企业提供支持。我们提供私人投资项目架构设计、文件准备以及机构关系协调等方面的协助。',
 
     srv5_title: '企业咨询与行政管理支持',
     srv5_desc: '为企业组织架构规划、档案文件整理、财税前期咨询及运营规划提供技术咨询与长期支持。',
 
-    srv6_title: '综合商贸：IT及办公设备供应',
-    srv6_desc: '电脑、服务器、打印机、网络设备及办公电子耗材的一站式采购与供应，品质可靠，售后有保障。',
+    srv6_title: '灭火器的一般贸易与供应',
+    srv6_desc: '我们销售各类灭火器，适用于家庭、企业、商铺、仓库、办公室、车辆及工业设施。我们协助客户根据具体火灾风险，选择最合适的灭火器类型与规格，并提供针对不同火灾类别而设计的灭火设备。',
 
     srv7_title: '综合商贸：办公耗材与文具物资',
     srv7_desc: '定期供应办公消耗品、打印硒鼓墨盒、办公纸张及日常行政物资，确保企业高效正常运转。',
@@ -420,13 +485,13 @@ const sckjTranslations = {
 
     // Commerce Dedicated Page
     comm_badge: '综合贸易与物资供应',
-    comm_title: '高效企业供应与优质商业办公设备',
-    comm_desc: '在综合商贸领域，SCKJ 以严格的选品、极速的物流和极具竞争力的价格，为在安各类机构与企业提供全方位供应。',
-    comm_item1: 'IT设备与网络工程',
+    comm_title: '面向企业的会计与人力资源咨询',
+    comm_desc: '我们为各类企业、创业者及组织提供会计与人力资源管理服务。我们协助客户履行税务及会计义务，梳理财务状况，并高效地进行员工管理。',
+    comm_item1: '会计的组织与处理；',
     comm_sub1: '电脑、服务器、网络布线与打印机',
-    comm_item2: '办公用品与文具耗材',
+    comm_item2: '编制财务图表与报告；',
     comm_sub2: '纸张、墨盒、硒鼓及日用消耗品',
-    comm_item3: '专属物资委托采购',
+    comm_item3: '协助履行纳税义务；',
     comm_sub3: '定制化企业大宗物资供应',
     comm_btn: '索取物资供应报价',
 
@@ -523,17 +588,30 @@ const sckjTranslations = {
   }
 };
 
-// Idioma combinado: mostra cada texto em português e chinês.
+// Idioma combinado: português em cima e chinês em baixo no menu e nas descrições dos serviços.
 const bilinguePtZh = {};
 const chavesPtZh = new Set([
   ...Object.keys(sckjTranslations.pt),
   ...Object.keys(sckjTranslations.zh),
 ]);
+const chavesMenuPtZh = new Set([
+  'nav_home', 'nav_about', 'nav_services', 'nav_commerce',
+  'nav_faq', 'nav_contact', 'nav_portfolio', 'nav_login',
+]);
+const chavesDescricaoServicoPtZh = new Set(
+  [...chavesPtZh].filter((chave) => /^(?:gallery_)?srv\d+_desc$/.test(chave))
+);
 
 chavesPtZh.forEach(function (chave) {
   const pt = sckjTranslations.pt[chave] ?? sckjTranslations.zh[chave] ?? '';
   const zh = sckjTranslations.zh[chave] ?? pt;
-  bilinguePtZh[chave] = pt === zh ? pt : `${pt} / ${zh}`;
+  if (pt === zh) {
+    bilinguePtZh[chave] = pt;
+  } else if (chavesMenuPtZh.has(chave) || chavesDescricaoServicoPtZh.has(chave)) {
+    bilinguePtZh[chave] = `${pt}<br>${zh}`;
+  } else {
+    bilinguePtZh[chave] = `${pt} / ${zh}`;
+  }
 });
 
 bilinguePtZh.lang_name = 'Português / 中文';

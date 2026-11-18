@@ -7,6 +7,7 @@
 
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-page-hero-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    @include('portals.hero-gallery')
     <div class="container">
         <div class="row">
             <div class="col-lg-8 m-auto">

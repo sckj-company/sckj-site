@@ -6,6 +6,7 @@
 
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-page-hero-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    @include('portals.hero-gallery')
     <div class="container">
         <div class="row">
             <div class="col-lg-8 m-auto">
@@ -20,9 +21,10 @@
 </div>
 <!--===== HERO AREA ENDS =======-->
 
+
 <!--===== ABOUT AREA STARTS =======-->
-<div class="about1-section-area sp1">
-  <img src="assets/img/elements/elements9.png" alt="" class="elements9">
+<div class="about1-section-area sp1" id="about">
+  <img src="{{asset('assets/img/elements/elements9.png')}}" alt="" class="elements9">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
@@ -31,18 +33,18 @@
           <div class="row align-items-center">
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
-    
-                <img src="{{imagem('Sobre.Nós','assets/img/all-images/about/about-img1.png')}}" alt="{{ imagem_alt('Sobre.Nós'),"Apoio Corporativo SCKJ" }}">
+            
+                <img src="{{ imagem('home.banner', 'assets/img/all-images/about/about-img1.png')}}" alt="{{ imagem_alt('home.banner'), "Consultoria SCKJ"}}">
               </div>
               <div class="space30 d-lg-none d-block"></div>
             </div>
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
-                <img src="{{imagem('Sobre.Nós2','assets/img/all-images/about/about-img2.png')}}" alt="{{ imagem_alt('Sobre.Nós2'),"Tecnologia e Sistemas SCKJ"}}">
+                <img src="{{imagem('home.segunda','assets/img/all-images/about/about-img2.png')}}" alt="{{ imagem_alt('home.segunda'), "Desenvolvimento de Sistemas"}}">
               </div>
               <div class="space30"></div>
               <div class="img1 image-anime reveal">
-                <img src="{{imagem('Sobre.Nós3','assets/img/all-images/about/about-img3.png')}}" alt="{{ imagem_alt('Sobre.Nós3'),"Gestão Documental SCKJ"}}">
+                <img src="{{imagem('home.terceiro', 'assets/img/all-images/about/about-img3.png')}}" alt="{{ imagem_alt('home.terceiro'), "Gestão Documental"}}">
               </div>
             </div>
           </div>
@@ -60,9 +62,7 @@
           <div class="space24"></div>
           <h2 class="text-anime-style-3" data-i18n="about_title">O Parceiro Estratégico para Legalizar, Estruturar e Digitalizar a Sua Empresa</h2>
           <div class="space16"></div>
-          <p data-aos="fade-left" data-aos-duration="800" data-i18n="about_p1">A <strong>SCKJ</strong> é uma empresa especializada em prestação de serviços corporativos e comércio geral. Eliminamos a burocracia dos processos empresariais para que os nossos clientes foquem no crescimento das suas operações.</p>
-          <div class="space16"></div>
-          <p data-aos="fade-left" data-aos-duration="850" data-i18n="about_p2">Desde a constituição formal de novas entidades até ao desenvolvimento de sistemas digitais personalizados e fornecimento de materiais e equipamentos, garantimos soluções completas com rigor, segurança e transparência.</p>
+          <p data-aos="fade-left" data-aos-duration="800" data-i18n="about_p1">A <strong>SCKJ</strong> é uma empresa especializada em prestação de serviços corporativos e comércio geral. Eliminamos a burocracia dos processos empresariais para que os nossos clientes foquem no crescimento das suas operações.</p>  
           <div class="space28"></div>
           <div class="row" data-aos="fade-left" data-aos-duration="900">
             <div class="col-lg-6 col-md-6">
@@ -84,8 +84,8 @@
               <div class="space28 d-md-none d-block"></div>
               <div class="progresbar">
                 <div class="progressbar">
-                   <div class="circle" data-percent="98"><canvas width="80" height="80"></canvas>
-                       <div class="count">98%</div>
+                   <div class="circle" data-percent="97"><canvas width="80" height="80"></canvas>
+                       <div class="count">97%</div>
                   </div>
                 </div>
                 <div class="content-area">
@@ -98,7 +98,7 @@
           </div>
           <div class="space32"></div>
           <div class="btn-area1" data-aos="fade-left" data-aos-duration="1000">
-            <a href="{{route('services')}}" class="vl-btn2"><span data-i18n="hero_btn_services">Conhecer Serviços</span> <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{route('about')}}" class="vl-btn2"><span data-i18n="about_btn">Mais Sobre a SCKJ</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
       </div>

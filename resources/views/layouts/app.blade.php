@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/plugins/sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/plugins/slick-slider.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/plugins/nice-select.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}?v={{ filemtime(public_path('assets/css/main.css')) }}">
 
     <!--===== JS SCRIPT LINK =======-->
     <script src="{{asset('assets/js/plugins/jquery-3-7-1.min.js')}}"></script>
@@ -77,6 +77,8 @@
             }, 3000);
         });
     </script>
+
+    @include('portals.hero-gallery-scripts')
 
     @stack('scripts')
 </body>
