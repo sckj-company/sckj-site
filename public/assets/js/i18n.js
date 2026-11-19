@@ -86,11 +86,11 @@ const sckjTranslations = {
     srv6_title: 'Comércio Geral & Fornecimento de Extintores',
     srv6_desc: 'Comercializamos extintores de incêndio para residências, empresas, lojas, armazéns, escritórios, viaturas e instalações industriais. Ajudamos o cliente a escolher o tipo e a capacidade adequados ao risco existente, fornecendo equipamentos para diferentes classes de incêndio.',
 
-    srv7_title: 'Comércio: Materiais de Escritório',
-    srv7_desc: 'Fornecimento regular de consumíveis de escritório, toners, papelaria em geral e artigos administrativos para manter a sua empresa sempre abastecida.',
+    srv7_title: 'Consultoria Ambiental',
+    srv7_desc: 'Aconselhamento técnico para estruturação corporativa, organização documental de arquivos, assessoria tributária preliminar e planeamento operacional.',
 
-    srv8_title: 'Fornecimento sob Encomenda',
-    srv8_desc: 'Aquisição e logística especializada de bens diversos solicitados pela sua organização, garantindo rapidez na entrega e os melhores preços do mercado.',
+    srv8_title: 'Consultoria de Contabilidade',
+    srv8_desc: 'Na SCKJ, transformamos a contabilidade numa ferramenta estratégica de gestão e crescimento para o seu negócio, indo muito além do simples cumprimento de obrigações fiscais e entrega de guias.',
 
     srv9_title: 'Suporte Técnico & Manutenção',
     srv9_desc: 'Apoio técnico pós-implementação de sistemas, manutenção de equipamentos, backups regulares e assistência dedicada para garantir a continuidade do seu negócio.',
@@ -280,11 +280,11 @@ const sckjTranslations = {
     srv6_title: 'General Trading & Supply of Fire Extinguishers',
     srv6_desc: 'We sell fire extinguishers for homes, businesses, shops, warehouses, offices, vehicles, and industrial facilities. We assist clients in selecting the type and capacity best suited to the specific risks present, providing equipment designed for various classes of fire.',
 
-    srv7_title: 'Commerce: Office Supplies & Paper',
-    srv7_desc: 'Regular delivery of office consumables, printer toner, stationery, and administrative goods to keep your company fully stocked and operational.',
+    srv7_title: 'Environmental consulting',
+    srv7_desc: 'Technical consulting for corporate structuring, organization of archival documentation, preliminary tax advisory, and operational planning.',
 
-    srv8_title: 'On-Demand Commercial Procurement',
-    srv8_desc: 'Specialized purchasing and logistics for various goods requested by your organization, guaranteeing fast turnaround and competitive pricing.',
+    srv8_title: 'Accounting Consulting',
+    srv8_desc: 'At SCKJ, we transform accounting into a strategic management and growth tool for your business—going well beyond the simple fulfillment of tax obligations and the filing of tax forms.',
 
     srv9_title: 'Technical Support & System Maintenance',
     srv9_desc: 'Post-implementation technical support, hardware maintenance, automated backups, and ongoing IT support to ensure business continuity.',
@@ -474,11 +474,11 @@ const sckjTranslations = {
     srv6_title: '灭火器的一般贸易与供应',
     srv6_desc: '我们销售各类灭火器，适用于家庭、企业、商铺、仓库、办公室、车辆及工业设施。我们协助客户根据具体火灾风险，选择最合适的灭火器类型与规格，并提供针对不同火灾类别而设计的灭火设备。',
 
-    srv7_title: '综合商贸：办公耗材与文具物资',
-    srv7_desc: '定期供应办公消耗品、打印硒鼓墨盒、办公纸张及日常行政物资，确保企业高效正常运转。',
+    srv7_title: '环境咨询',
+    srv7_desc: '针对企业架构、档案资料整理、初步税务咨询及运营规划提供专业技术咨询。',
 
-    srv8_title: '定制化采购与物资供应链',
-    srv8_desc: '针对企业的个性化需求，提供各类物资的专项采购、报关与物流配送服务，供货快捷，价格优势明显。',
+    srv8_title: '会计咨询',
+    srv8_desc: '在SCKJ，我们将会计工作转化为助力您企业发展的战略管理工具——其内涵远不止于履行税务义务或申报税务表格。',
 
     srv9_title: '技术支持与系统长期维护',
     srv9_desc: '提供系统上线后的技术培训、设备日常维护、数据备份与应急技术响应，确保企业IT设施稳定可靠。',

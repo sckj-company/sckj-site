@@ -34,7 +34,7 @@
                               <li class="active"><a href="{{route('home')}}" data-i18n="nav_home">Início</a></li>
                               <li><a href="{{route('about')}}" data-i18n="nav_about">Sobre Nós</a></li>
                               <li><a href="{{route('services')}}" data-i18n="nav_services">Serviços</a></li>
-                              <li><a href="{{route('commerce')}}" data-i18n="nav_commerce">Comércio Geral</a></li>
+                        <!--=====      <li><a href="{{route('commerce')}}" data-i18n="nav_commerce">Comércio Geral</a></li>!-->
                               <li><a href="{{route('faq')}}" data-i18n="nav_faq">FAQ</a></li>
                               <li><a href="{{route('contacts')}}" data-i18n="nav_contact">Contactos</a></li>
                               <li><a href="{{route('portfolio.index')}}" data-i18n="nav_portfolio">Portfólio</a></li>
