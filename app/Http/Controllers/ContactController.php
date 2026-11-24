@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NovaMensagemContacto;
 use App\Models\ContactMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
@@ -12,20 +14,20 @@ class ContactController extends Controller
     public function enviar(Request $request)
     {
         $dados = $request->validate([
-            'nome'     => ['required', 'string', 'max:100'],
-            'prefixo'  => ['required', Rule::in(array_keys(config('paises')))],
+            'nome' => ['required', 'string', 'max:100'],
+            'prefixo' => ['required', Rule::in(array_keys(config('paises')))],
             'telefone' => ['required', 'regex:/^[0-9\s\-]{6,15}$/'],
-            'email'    => ['required', 'email', 'max:150'],
-            'assunto'  => ['required', Rule::in(array_keys(ContactMessage::SERVICOS))],
+            'email' => ['required', 'email', 'max:150'],
+            'assunto' => ['required', Rule::in(array_keys(ContactMessage::SERVICOS))],
             'mensagem' => ['required', 'string', 'max:2000'],
         ], [
-            'required'       => __('contactos.required'),
-            'string'         => __('contactos.string'),
-            'max'            => __('contactos.max'),
-            'email'          => __('contactos.email'),
-            'prefixo.in'     => __('contactos.prefixo'),
+            'required' => __('contactos.required'),
+            'string' => __('contactos.string'),
+            'max' => __('contactos.max'),
+            'email' => __('contactos.email'),
+            'prefixo.in' => __('contactos.prefixo'),
             'telefone.regex' => __('contactos.telefone_regex'),
-            'assunto.in'     => __('contactos.assunto'),
+            'assunto.in' => __('contactos.assunto'),
         ]);
 
         // Só dígitos, sem zeros à esquerda
@@ -37,15 +39,18 @@ class ContactController extends Controller
             ]);
         }
 
-        $telefone = '+' . config("paises.{$dados['prefixo']}.prefixo") . $numero;
+        $telefone = '+'.config("paises.{$dados['prefixo']}.prefixo").$numero;
 
-        ContactMessage::create([
-            'nome'     => $dados['nome'],
+        $mensagem = ContactMessage::create([
+            'nome' => $dados['nome'],
             'telefone' => $telefone,
-            'email'    => $dados['email'],
-            'servico'  => $dados['assunto'],
+            'email' => $dados['email'],
+            'servico' => $dados['assunto'],
             'mensagem' => $dados['mensagem'],
         ]);
+
+        Mail::to(config('mail.contacto.address'))
+            ->send(new NovaMensagemContacto($mensagem));
 
         return redirect()->route('contacts')
             ->with('sucesso', __('contactos.sucesso'));

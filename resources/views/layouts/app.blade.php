@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCKJ - Prestação de Serviços & Comércio Geral</title>
-    <meta name="description" content="SCKJ - Soluções corporativas integradas: Criação e legalização de empresas, tratamento e gestão de documentos, desenvolvimento de sistemas e comércio geral.">
+    <title data-i18n="meta_title">SCKJ - Prestação de Serviços & Comércio Geral</title>
+    <meta name="description"
+          content="SCKJ - Soluções corporativas integradas: Criação e legalização de empresas, tratamento e gestão de documentos, desenvolvimento de sistemas e comércio geral."
+          data-i18n="meta_desc" data-i18n-attr="content">
 
     <script>window.SITE_LANG = @json(app()->getLocale());</script>
 
     <!--===== FAB ICON =======-->
     <link rel="shortcut icon" href="{{asset('assets/img/logo/fav-logo1.png')}}" type="image/x-icon">
+    <!-- Logótipo do carrossel: pré-carregado para não piscar nas trocas de slide. -->
+    <link rel="preload" as="image" href="{{ asset('assets/img/logo/logo1.png') }}">
 
     <!--===== CSS LINK =======-->
     <link rel="stylesheet" href="{{asset('assets/css/plugins/bootstrap.min.css')}}">
@@ -56,12 +60,13 @@
     <script src="{{asset('assets/js/plugins/circle-progress.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
     <script src="{{ asset('assets/js/i18n.js') }}?v={{ filemtime(public_path('assets/js/i18n.js')) }}"></script>
+    <script src="{{ asset('assets/js/progressive.js') }}?v={{ filemtime(public_path('assets/js/progressive.js')) }}"></script>
 
     <script>
         window.addEventListener('load', function () {
             try {
-                if (typeof setLanguage === 'function' && window.SITE_LANG) {
-                    setLanguage(window.SITE_LANG);
+                if (typeof window.sckjApplyStoredLanguage === 'function') {
+                    window.sckjApplyStoredLanguage();
                 }
                 if (window.jQuery && jQuery.fn.niceSelect) {
                     jQuery('select').niceSelect('update');

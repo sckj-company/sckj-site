@@ -3,7 +3,9 @@
 @section('title', 'services')
 
 @section('content')
-    
+@php
+    $altFala = imagem_alt_i18n('Serviço.fala');
+@endphp
 
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-page-hero-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
@@ -113,7 +115,7 @@
       <div class="col-lg-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-duration="1200">
         <div class="service1-boxarea w-100 h-100 d-flex flex-column">
           <div class="icons">
-            <img src="{{asset('assets/img/icons/service-icon3.svg')}}" alt="">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
           </div>
           <div class="arrow">
             <a href="{{route('contacts')}}"><i class="fa-solid fa-arrow-right"></i></a>
@@ -222,13 +224,13 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-             <img src="{{imagem('Serviço.fala','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ imagem_alt('Serviço.fala'),"SCKJ Atendimento"}}">
+             <img loading="lazy" src="{{imagem('Serviço.fala','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altFala['pt'] }}" data-i18n-values='@json($altFala)' data-i18n-attr="alt">
             
           </div>
           <ul class="aniamtion-key-1">
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Respostas Rápidas</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Apoio Dedicado</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Sem Burocracia</a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point1">Respostas Rápidas</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point2">Apoio Dedicado</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point3">Sem Burocracia</span></a></li>
           </ul>
         </div>
       </div>

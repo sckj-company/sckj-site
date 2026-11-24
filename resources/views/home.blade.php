@@ -4,6 +4,17 @@
 
 @section('content')
     {{-- cola aqui só o conteúdo do meio da página inicial --}}
+    @php
+        $horario = i18n_values(fn () => conteudo('Horário.horario'));
+        $altBanner = imagem_alt_i18n('home.banner');
+        $altSegunda = imagem_alt_i18n('home.segunda');
+        $altTerceiro = imagem_alt_i18n('home.terceiro');
+        $altComercio1 = imagem_alt_i18n('home.comercio1');
+        $altComercio2 = imagem_alt_i18n('home.comercio2');
+        $altTrabalhos = imagem_alt_i18n('home.trabalhos');
+        $altFalar = imagem_alt_i18n('home.falar');
+        $altAtendimento = imagem_alt_i18n('home.atendimento');
+    @endphp
     
 <!--===== HERO AREA STARTS =======-->
 <div class="hero1-section-area" id="home">
@@ -63,27 +74,27 @@
 
 <!--===== ABOUT AREA STARTS =======-->
 <div class="about1-section-area sp1" id="about">
-  <img src="{{asset('assets/img/elements/elements9.png')}}" alt="" class="elements9">
+  <img loading="lazy" src="{{asset('assets/img/elements/elements9.png')}}" alt="" class="elements9">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="about-images-area">
-          <img src="{{asset('assets/img/elements/elements10.png')}}" alt="" class="elements10">
+          <img loading="lazy" src="{{asset('assets/img/elements/elements10.png')}}" alt="" class="elements10">
           <div class="row align-items-center">
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
             
-                <img src="{{ imagem('home.banner', 'assets/img/all-images/about/about-img1.png')}}" alt="{{ imagem_alt('home.banner'), "Consultoria SCKJ"}}">
+                <img loading="lazy" src="{{ imagem('home.banner', 'assets/img/all-images/about/about-img1.png')}}" alt="{{ $altBanner['pt'] }}" data-i18n-values='@json($altBanner)' data-i18n-attr="alt">
               </div>
               <div class="space30 d-lg-none d-block"></div>
             </div>
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
-                <img src="{{imagem('home.segunda','assets/img/all-images/about/about-img2.png')}}" alt="{{ imagem_alt('home.segunda'), "Desenvolvimento de Sistemas"}}">
+                <img loading="lazy" src="{{imagem('home.segunda','assets/img/all-images/about/about-img2.png')}}" alt="{{ $altSegunda['pt'] }}" data-i18n-values='@json($altSegunda)' data-i18n-attr="alt">
               </div>
               <div class="space30"></div>
               <div class="img1 image-anime reveal">
-                <img src="{{imagem('home.terceiro', 'assets/img/all-images/about/about-img3.png')}}" alt="{{ imagem_alt('home.terceiro'), "Gestão Documental"}}">
+                <img loading="lazy" src="{{imagem('home.terceiro', 'assets/img/all-images/about/about-img3.png')}}" alt="{{ $altTerceiro['pt'] }}" data-i18n-values='@json($altTerceiro)' data-i18n-attr="alt">
               </div>
             </div>
           </div>
@@ -262,13 +273,13 @@
       <div class="col-lg-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-duration="1200">
         <div class="service1-boxarea w-100 h-100 d-flex flex-column">
           <div class="icons">
-            <img src="{{asset('assets/img/icons/service-icon3.svg')}}" alt="">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
           </div>
           <div class="arrow">
             <a href="{{route('services')}}"><i class="fa-solid fa-arrow-right"></i></a>
           </div>
           <div class="space24"></div>
-          <a href="{{route('services')}}">Consultoria & Apoio Administrativo</a>
+          <a href="{{route('services')}}" data-i18n="srv5_title">Consultoria & Apoio Administrativo</a>
           <div class="space16"></div>
           <p data-i18n="srv5_desc">Aconselhamento técnico para estruturação corporativa, organização documental de arquivos, assessoria tributária preliminar e planeamento operacional.</p>
           <div class="space24 mt-auto"></div>
@@ -299,7 +310,7 @@
 
 <!--===== COMMERCE SECTION STARTS =======-->
 <div class="work1-section-area sp1" id="commerce">
-  <img src="{{asset('assets/img/elements/elements11.png')}}" alt="" class="elements9">
+  <img loading="lazy" src="{{asset('assets/img/elements/elements11.png')}}" alt="" class="elements9">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
@@ -339,12 +350,12 @@
       <div class="col-lg-1"></div>
       <div class="col-lg-5">
         <div class="soultions-images">
-          <img src="{{asset('assets/img/elements/elements10.png')}}" alt="" class="elements10">
+          <img loading="lazy" src="{{asset('assets/img/elements/elements10.png')}}" alt="" class="elements10">
           <div class="img1 reveal image-anime">
-            <img src="{{imagem('home.comercio1','assets/img/all-images/work/work-img1.png?v=2')}}" alt="{{ imagem_alt('home.comercio1'),"Fornecimento SCKJ"}}">
+            <img loading="lazy" src="{{imagem('home.comercio1','assets/img/all-images/work/work-img1.png?v=2')}}" alt="{{ $altComercio1['pt'] }}" data-i18n-values='@json($altComercio1)' data-i18n-attr="alt">
           </div>
           <div class="img2 reveal image-anime">
-            <img src="{{imagem('home.comercio2','assets/img/all-images/work/work-img2.png?v=2')}}" alt="{{ imagem_alt('home.comercio2'),"Soluções Corporativas SCKJ"}}">
+            <img loading="lazy" src="{{imagem('home.comercio2','assets/img/all-images/work/work-img2.png?v=2')}}" alt="{{ $altComercio2['pt'] }}" data-i18n-values='@json($altComercio2)' data-i18n-attr="alt">
           </div>
         </div>
       </div>
@@ -400,12 +411,12 @@
               </div>
               <div class="col-lg-4">
                 <div class="images" data-aos="zoom-in" data-aos-duration="1000">
-                  <img src="{{asset('assets/img/elements/elements12.png')}}" alt="" class="elements12">
-                  <img src="{{asset('assets/img/elements/elements13.png')}}" alt="" class="elements13">
-                  <img src="{{asset('assets/img/elements/elements14.png')}}" alt="" class="elements14">
-                  <img src="{{asset('assets/img/elements/elements15.png')}}" alt="" class="elements15">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements12.png')}}" alt="" class="elements12">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements13.png')}}" alt="" class="elements13">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements14.png')}}" alt="" class="elements14">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements15.png')}}" alt="" class="elements15">
                   <div class="img1">
-                    <img src="{{imagem('home.trabalhos','assets/img/all-images/case/case-img4.png?v=2')}}" alt="{{ imagem_alt('home.trabalhos'), "SCKJ Eficiência e Segurança"}}">
+                    <img loading="lazy" src="{{imagem('home.trabalhos','assets/img/all-images/case/case-img4.png?v=2')}}" alt="{{ $altTrabalhos['pt'] }}" data-i18n-values='@json($altTrabalhos)' data-i18n-attr="alt">
                   </div>
                 </div>
               </div>
@@ -459,12 +470,12 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-            <img src="{{imagem('home.falar','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ imagem_alt('home.falar'), "SCKJ Atendimento"}}">
+            <img loading="lazy" src="{{imagem('home.falar','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altFalar['pt'] }}" data-i18n-values='@json($altFalar)' data-i18n-attr="alt">
           </div>
           <ul class="aniamtion-key-1">
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Respostas Rápidas</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Apoio Dedicado</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Sem Burocracia</a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point1">Respostas Rápidas</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point2">Apoio Dedicado</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point3">Sem Burocracia</span></a></li>
           </ul>
         </div>
       </div>
@@ -492,7 +503,7 @@
                             </div>
                             <div class="content">
                                 <h4 data-i18n="contact_email_title">E-mail</h4>
-                                <a href="mailto:geral@sckj.co.ao">geral@sckj.co.ao</a>
+                                <a href="mailto:sckj2026@gmail.com">sckj2026@gmail.com</a>
                             </div>
                         </div>
                         <div class="space30 d-lg-none d-block"></div>
@@ -518,7 +529,7 @@
                             </div>
                             <div class="content">
                                 <h4 data-i18n="contact_time_title">Horário de Atendimento</h4>
-                                <a>{!! nl2br(e(conteudo('Horário.horario'))) !!}</a>
+                                <a data-i18n-values='@json($horario)'>{!! nl2br($horario['pt']) !!}</a>
                             </div>
                         </div>
                     </div>
@@ -527,7 +538,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="img1 reveal image-anime">
-                            <img src="{{imagem('home.atendimento','assets/img/all-images/others/others-img2.png?v=2')}}" alt="{{ imagem_alt('home.atendimento'),"SCKJ Atendimento ao Cliente"}}">
+                            <img loading="lazy" src="{{imagem('home.atendimento','assets/img/all-images/others/others-img2.png?v=2')}}" alt="{{ $altAtendimento['pt'] }}" data-i18n-values='@json($altAtendimento)' data-i18n-attr="alt">
                           </div>
                     </div>
 

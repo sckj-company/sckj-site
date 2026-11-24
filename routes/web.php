@@ -21,6 +21,14 @@ Route::get('/idioma/{locale}', function (string $locale) {
 
     return back();
 })->name('idioma');
+
+// Troca de idioma por AJAX: mesma sessão, resposta JSON sem redirect.
+Route::get('/idioma/{locale}/json', function (string $locale) {
+    abort_unless(array_key_exists($locale, config('idiomas')), 404);
+    session(['locale' => $locale]);
+
+    return response()->json(['locale' => $locale]);
+})->name('idioma.json');
 // ------------------------Fim--------------------------
 // ---------------------Login----------------------------
 Route::middleware('guest')->group(function () {

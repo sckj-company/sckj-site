@@ -5,6 +5,19 @@ body, html {
   scroll-padding-top: 100px;
 }
 
+/* Troca de idioma: manter a posição visual sem animação nem ajuste automático do browser. */
+html.sckj-language-switching,
+html.sckj-language-switching body {
+  scroll-behavior: auto !important;
+  overflow-anchor: none !important;
+}
+
+html.sckj-language-switching *,
+html.sckj-language-switching *::before,
+html.sckj-language-switching *::after {
+  overflow-anchor: none !important;
+}
+
 a, a:hover {
   text-decoration: none;
 }
@@ -2648,6 +2661,11 @@ Location:
   transition: all 0.4s;
   display: inline-block;
   background: var(--Main-Color, linear-gradient(90deg, #2E0797 0%, #726EFC 100%));
+}
+.service1-section-area .service1-boxarea .icons i {
+  color: #fff;
+  font-size: 38px;
+  line-height: 70px;
 }
 .service1-section-area .service1-boxarea .arrow {
   position: absolute;
@@ -13759,7 +13777,12 @@ Location:
   min-height: auto !important;
 }
 
-/* Automatic service photo gallery behind the home hero */
+/* Automatic service photo gallery: começa abaixo do menu e termina no fim do header. */
+.hero1-section-area,
+.inner-page-hero-area {
+  --hero-gallery-gutter: clamp(12px, 2.5vw, 48px);
+}
+
 .hero1-section-area > .container,
 .inner-page-hero-area > .container {
   position: relative;
@@ -13776,7 +13799,17 @@ Location:
 
 .hero-gallery {
   z-index: 0;
+  top: clamp(88px, 9vw, 120px);
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  width: calc(100% - var(--hero-gallery-gutter) - var(--hero-gallery-gutter));
+  transform: translateX(-50%);
   overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(4, 18, 32, 0.28);
+  /* Fundo opaco evita "vazios" entre fotos durante a transição. */
+  background-color: #041220;
 }
 
 .hero-gallery__slide {
@@ -13786,44 +13819,27 @@ Location:
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0;
-  transform: scale(1.08);
-  transition: opacity 1.15s ease, transform 7s ease-out, filter 780ms ease;
-  will-change: opacity, transform;
+  transition: opacity 400ms ease;
+  will-change: opacity;
 }
 
 .hero-gallery__slide.is-active {
   z-index: 0;
   opacity: 1;
-  transform: scale(1);
 }
 
-/* A foto seguinte entra pelo lado enquanto a atual avança com zoom. */
+/* Crossfade simples: a foto seguinte aparece enquanto a actual desaparece. */
 .hero-gallery__slide.is-peeking {
   z-index: 1;
-  opacity: 0.72;
-  transform: translateX(6%) scale(1.04);
-  transition: opacity 780ms ease,
-              transform 780ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  opacity: 1;
+  transition: opacity 400ms ease;
 }
 
-/* Fase 1: a foto desloca-se e aproxima-se mantendo-se visível. */
-.hero-gallery__slide.is-shifting {
-  z-index: 2;
-  filter: brightness(1.04);
-  transform: translateX(-4.5%) scale(1.07);
-  transition: transform 380ms cubic-bezier(0.22, 0.61, 0.36, 1),
-              filter 380ms ease;
-}
-
-/* Fase 2: continua o movimento e desaparece. */
+.hero-gallery__slide.is-shifting,
 .hero-gallery__slide.is-leaving {
   z-index: 2;
   opacity: 0;
-  filter: brightness(1.08);
-  transform: translateX(-9%) scale(1.13);
-  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 400ms ease,
-              filter 400ms ease;
+  transition: opacity 400ms ease;
 }
 
 .hero-gallery__shade {
@@ -13836,9 +13852,13 @@ Location:
 .hero-gallery__brand {
   position: absolute;
   z-index: 4;
-  top: 118px;
-  right: clamp(16px, 4vw, 56px);
-  width: 128px;
+  top: clamp(24px, 6%, 44px);
+  right: clamp(16px, 3vw, 40px);
+  width: clamp(96px, 11vw, 140px);
+  /* Camada fixa: não intercepta cliques e não sofre repaint ao trocar de slide. */
+  pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .hero-gallery__brand img {
@@ -13848,29 +13868,12 @@ Location:
   filter: brightness(0) invert(1) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
 }
 
-.hero-gallery__brand.is-flashing img {
-  animation: heroGalleryLogoIn 1.1s ease both;
-}
-
-@keyframes heroGalleryLogoIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px) scale(0.86);
-  }
-  45% {
-    opacity: 1;
-    transform: translateY(0) scale(1.04);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
+/* O logótipo é único e não recebe fade/opacity: as transições afectam só as fotos. */
 
 .hero-gallery__controls {
   position: absolute;
   z-index: 4;
-  right: clamp(16px, 4vw, 56px);
+  right: calc(var(--hero-gallery-gutter) + clamp(16px, 2vw, 32px));
   bottom: 24px;
   display: flex;
   align-items: center;
@@ -13986,20 +13989,44 @@ Location:
 }
 
 @media (max-width: 991px) {
+  .hero1-section-area,
+  .inner-page-hero-area {
+    --hero-gallery-gutter: 16px;
+  }
+
+  .hero-gallery {
+    top: clamp(80px, 9vw, 104px);
+    border-radius: 14px;
+  }
+
   .hero-gallery__brand {
-    top: 96px;
-    width: 100px;
+    width: 104px;
   }
 }
 
 @media (max-width: 767px) {
+  .hero1-section-area,
+  .inner-page-hero-area {
+    --hero-gallery-gutter: 14px;
+  }
+
+  .hero-gallery {
+    top: 80px;
+    border-radius: 12px;
+  }
+
   .hero-gallery__controls {
     bottom: 20px;
-    right: 16px;
+    right: calc(var(--hero-gallery-gutter) + 14px);
   }
 }
 
 @media (max-width: 575px) {
+  .hero1-section-area,
+  .inner-page-hero-area {
+    --hero-gallery-gutter: 12px;
+  }
+
   .hero-gallery__brand {
     display: none;
   }
@@ -14007,7 +14034,7 @@ Location:
   .hero-gallery__controls {
     gap: 8px;
     bottom: 14px;
-    right: 14px;
+    right: calc(var(--hero-gallery-gutter) + 12px);
   }
 
   .hero-gallery__nav {
@@ -14305,6 +14332,91 @@ Location:
   .heading7 h5 span[data-i18n] {
     white-space: normal !important;
     font-size: 12.5px !important;
+  }
+}
+
+/* ========================================================
+   ALTURA IGUAL DE CARDS / REVEAL ON SCROLL
+   ======================================================== */
+
+/* As colunas esticam; o card ocupa toda a altura da linha, sem JS. */
+.service1-section-area .row > [class*="col-"],
+.hero-clean-features .row > [class*="col-"],
+.contact-inner-area .row > [class*="col-"],
+.equal-cards-row > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.service1-section-area .row > [class*="col-"] > .service1-boxarea,
+.hero-clean-features .row > [class*="col-"] > .hero-feature-card,
+.contact-inner-area .row > [class*="col-"] > .widget-contactbox,
+.equal-cards-row > [class*="col-"] > .card {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* A área de texto cresce e o rodapé (número/botão) alinha-se na base. */
+.service1-boxarea > p,
+.hero-feature-card .text,
+.widget-contactbox .content,
+.equal-cards-row .card-body {
+  flex: 1 1 auto;
+}
+
+.service1-boxarea > h5,
+.equal-cards-row .card-body .btn {
+  margin-top: auto;
+}
+
+/* Texto muito longo não aumenta a linha; permanece no DOM para SEO. */
+.service1-boxarea > p,
+.hero-feature-card .text span,
+.widget-contactbox .content a,
+.equal-cards-row .card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+.hero-feature-card .text span {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* Em pt+zh os textos são bilingues: não cortar a versão chinesa. */
+html[lang="pt_zh"] .service1-boxarea > p,
+html[lang="pt_zh"] .hero-feature-card .text span,
+html[lang="pt_zh"] .widget-contactbox .content a,
+html[lang="pt_zh"] .equal-cards-row .card-text {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
+
+/* Só escondido quando o JS está activo: sem JS o conteúdo continua visível. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

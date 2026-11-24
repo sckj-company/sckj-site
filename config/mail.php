@@ -115,4 +115,17 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Messages Recipient
+    |--------------------------------------------------------------------------
+    |
+    | Address that receives a copy of every message submitted on the site.
+    |
+    */
+
+    'contacto' => [
+        'address' => env('MAIL_CONTACTO_ADDRESS', 'xandeldomingos@gmail.com'),
+    ],
+
 ];

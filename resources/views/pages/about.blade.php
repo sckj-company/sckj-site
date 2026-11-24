@@ -3,6 +3,13 @@
 @section('title', 'about')
 
 @section('content')
+@php
+    $altBanner = imagem_alt_i18n('home.banner');
+    $altSegunda = imagem_alt_i18n('home.segunda');
+    $altTerceiro = imagem_alt_i18n('home.terceiro');
+    $altConfianca = imagem_alt_i18n('Sobre.Nós4');
+    $altAtendimento = imagem_alt_i18n('Sobre.Nós5');
+@endphp
 
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-page-hero-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
@@ -24,27 +31,27 @@
 
 <!--===== ABOUT AREA STARTS =======-->
 <div class="about1-section-area sp1" id="about">
-  <img src="{{asset('assets/img/elements/elements9.png')}}" alt="" class="elements9">
+  <img loading="lazy" src="{{asset('assets/img/elements/elements9.png')}}" alt="" class="elements9">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="about-images-area">
-          <img src="{{asset('assets/img/elements/elements10.png')}}" alt="" class="elements10">
+          <img loading="lazy" src="{{asset('assets/img/elements/elements10.png')}}" alt="" class="elements10">
           <div class="row align-items-center">
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
             
-                <img src="{{ imagem('home.banner', 'assets/img/all-images/about/about-img1.png')}}" alt="{{ imagem_alt('home.banner'), "Consultoria SCKJ"}}">
+                <img loading="lazy" src="{{ imagem('home.banner', 'assets/img/all-images/about/about-img1.png')}}" alt="{{ $altBanner['pt'] }}" data-i18n-values='@json($altBanner)' data-i18n-attr="alt">
               </div>
               <div class="space30 d-lg-none d-block"></div>
             </div>
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
-                <img src="{{imagem('home.segunda','assets/img/all-images/about/about-img2.png')}}" alt="{{ imagem_alt('home.segunda'), "Desenvolvimento de Sistemas"}}">
+                <img loading="lazy" src="{{imagem('home.segunda','assets/img/all-images/about/about-img2.png')}}" alt="{{ $altSegunda['pt'] }}" data-i18n-values='@json($altSegunda)' data-i18n-attr="alt">
               </div>
               <div class="space30"></div>
               <div class="img1 image-anime reveal">
-                <img src="{{imagem('home.terceiro', 'assets/img/all-images/about/about-img3.png')}}" alt="{{ imagem_alt('home.terceiro'), "Gestão Documental"}}">
+                <img loading="lazy" src="{{imagem('home.terceiro', 'assets/img/all-images/about/about-img3.png')}}" alt="{{ $altTerceiro['pt'] }}" data-i18n-values='@json($altTerceiro)' data-i18n-attr="alt">
               </div>
             </div>
           </div>
@@ -113,9 +120,9 @@
     <div class="row">
       <div class="col-lg-8 m-auto">
         <div class="work-header heading1 text-center space-margin60">
-          <h5><span><img src="{{asset('assets/img/icons/sub-logo1.svg')}}" alt=""></span>Nossos Valores</h5>
+          <h5><span><img src="{{asset('assets/img/icons/sub-logo1.svg')}}" alt=""></span><span data-i18n="values_badge">Nossos Valores</span></h5>
           <div class="space24"></div>
-          <h2 class="text-anime-style-3">Os Pilares Que Orientam a Actuação da SCKJ</h2>
+          <h2 class="text-anime-style-3" data-i18n="values_title">Os Pilares Que Orientam a Actuação da SCKJ</h2>
         </div>
       </div>
     </div>
@@ -135,17 +142,17 @@
                     <h3>01</h3>
                   </div>
                   <div class="content-area">
-                    <a href="service.html">Confidencialidade & Rigor</a>
+                    <a href="service.html" data-i18n="pillar1_title">Confidencialidade & Rigor</a>
                     <div class="space14"></div>
-                    <p>Tratamos as informações da sua empresa e processos legais com sigilo absoluto e conformidade jurídica integral.</p>
+                    <p data-i18n="pillar1_desc">Tratamos as informações da sua empresa e processos legais com sigilo absoluto e conformidade jurídica integral.</p>
                   </div>
                 </div>
                 <div class="space30"></div>
                 <div class="card-boxarea box2" data-aos="zoom-in" data-aos-duration="900">
                   <div class="content-area">
-                    <a href="service.html">Rapidez sem Burocracia</a>
+                    <a href="service.html" data-i18n="pillar2_title">Rapidez sem Burocracia</a>
                     <div class="space14"></div>
-                    <p>Agilizamos a obtenção de documentos e entrega de sistemas, reduzindo tempos de espera e maximizando a sua produtividade.</p>
+                    <p data-i18n="pillar2_desc">Agilizamos a obtenção de documentos e entrega de sistemas, reduzindo tempos de espera e maximizando a sua produtividade.</p>
                   </div>
                   <div class="div text-end">
                     <h3>02</h3>
@@ -154,12 +161,12 @@
               </div>
               <div class="col-lg-4">
                 <div class="images" data-aos="zoom-in" data-aos-duration="1000">
-                  <img src="{{asset('assets/img/elements/elements12.png')}}" alt="" class="elements12">
-                  <img src="{{asset('assets/img/elements/elements13.png')}}" alt="" class="elements13">
-                  <img src="{{asset('assets/img/elements/elements14.png')}}" alt="" class="elements14">
-                  <img src="{{asset('assets/img/elements/elements15.png')}}" alt="" class="elements15">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements12.png')}}" alt="" class="elements12">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements13.png')}}" alt="" class="elements13">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements14.png')}}" alt="" class="elements14">
+                  <img loading="lazy" src="{{asset('assets/img/elements/elements15.png')}}" alt="" class="elements15">
                   <div class="img1">
-                    <img src="{{imagem('Sobre.Nós4','assets/img/all-images/case/case-img4.png?v=2')}}" alt="{{ imagem_alt('Sobre.Nós4'),"SCKJ Confiança"}}">
+                    <img loading="lazy" src="{{imagem('Sobre.Nós4','assets/img/all-images/case/case-img4.png?v=2')}}" alt="{{ $altConfianca['pt'] }}" data-i18n-values='@json($altConfianca)' data-i18n-attr="alt">
                   </div>
                 </div>
               </div>
@@ -169,17 +176,17 @@
                     <h3>03</h3>
                   </div>
                   <div class="content-area2">
-                    <a href="service.html">Inovação Tecnológica</a>
+                    <a href="service.html" data-i18n="pillar3_title">Inovação Tecnológica</a>
                     <div class="space14"></div>
-                    <p>Desenvolvemos ferramentas digitais inteligentes que facilitam a gestão financeira, de stock e de vendas do seu negócio.</p>
+                    <p data-i18n="pillar3_desc">Desenvolvemos ferramentas digitais inteligentes que facilitam a gestão financeira, de stock e de vendas do seu negócio.</p>
                   </div>
                 </div>
                 <div class="space30"></div>
                 <div class="card-boxarea box4" data-aos="zoom-in" data-aos-duration="1000">
                   <div class="content-area2">
-                    <a href="service.html">Parceria Contínua</a>
+                    <a href="service.html" data-i18n="pillar4_title">Parceria Contínua</a>
                     <div class="space14"></div>
-                    <p>Não entregamos apenas serviços; construímos relações duradouras de apoio ao crescimento sustentável da sua empresa.</p>
+                    <p data-i18n="pillar4_desc">Não entregamos apenas serviços; construímos relações duradouras de apoio ao crescimento sustentável da sua empresa.</p>
                   </div>
                   <div class="div">
                     <h3>04</h3>
@@ -214,12 +221,12 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-            <img src="{{imagem('Sobre.Nós5','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ imagem_alt('Sobre.Nós5'),"SCKJ Atendimento"}}">
+            <img loading="lazy" src="{{imagem('Sobre.Nós5','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altAtendimento['pt'] }}" data-i18n-values='@json($altAtendimento)' data-i18n-attr="alt">
           </div>
           <ul class="aniamtion-key-1">
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Respostas Rápidas</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Apoio Dedicado</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Sem Burocracia</a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point1">Respostas Rápidas</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point2">Apoio Dedicado</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point3">Sem Burocracia</span></a></li>
           </ul>
         </div>
       </div>

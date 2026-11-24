@@ -28,7 +28,7 @@
             <div class="col-lg-8 m-auto">
                 <div class="images-conten-area text-center">
                     <div class="img1 image-anime reveal">
-                        <img src="{{asset('assets/img/all-images/others/error.png')}}" alt="404 Error">
+                        <img loading="lazy" src="{{asset('assets/img/all-images/others/error.png')}}" alt="404 Error">
                     </div>
                     <div class="space40"></div>
                     <div class="heading2 text-center">

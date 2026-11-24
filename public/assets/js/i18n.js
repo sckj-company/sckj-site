@@ -8,6 +8,8 @@ const sckjTranslations = {
     lang_name: 'Português',
     lang_flag: '/assets/img/flags/pt.svg',
     lang_code: 'PT',
+    meta_title: 'SCKJ - Prestação de Serviços & Comércio Geral',
+    meta_desc: 'SCKJ - Soluções corporativas integradas: Criação e legalização de empresas, tratamento e gestão de documentos, desenvolvimento de sistemas e comércio geral.',
 
     // Navigation
     nav_home: 'Início',
@@ -132,10 +134,25 @@ const sckjTranslations = {
     step4_title: 'Entrega & Suporte Contínuo',
     step4_desc: 'Entrega de toda a documentação legal finalizada, formação no sistema implementado e suporte contínuo para o seu sucesso.',
 
+    // Nossos Valores / Pilares
+    values_badge: 'Nossos Valores',
+    values_title: 'Os Pilares Que Orientam a Actuação da SCKJ',
+    pillar1_title: 'Confidencialidade & Rigor',
+    pillar1_desc: 'Tratamos as informações da sua empresa e processos legais com sigilo absoluto e conformidade jurídica integral.',
+    pillar2_title: 'Rapidez sem Burocracia',
+    pillar2_desc: 'Agilizamos a obtenção de documentos e entrega de sistemas, reduzindo tempos de espera e maximizando a sua produtividade.',
+    pillar3_title: 'Inovação Tecnológica',
+    pillar3_desc: 'Desenvolvemos ferramentas digitais inteligentes que facilitam a gestão financeira, de stock e de vendas do seu negócio.',
+    pillar4_title: 'Parceria Contínua',
+    pillar4_desc: 'Não entregamos apenas serviços; construímos relações duradouras de apoio ao crescimento sustentável da sua empresa.',
+
     // CTA
     cta_title: 'Pronto Para Criar a Sua Empresa ou Implementar um Sistema de Gestão?',
     cta_desc: 'Evite atrasos e burocracias. Fale hoje mesmo com os especialistas da SCKJ e obtenha uma solução personalizada para o seu negócio.',
     cta_btn: 'Falar com um Consultor',
+    cta_point1: 'Respostas Rápidas',
+    cta_point2: 'Apoio Dedicado',
+    cta_point3: 'Sem Burocracia',
 
     // FAQ Page
     faq_badge: 'Perguntas Frequentes',
@@ -189,11 +206,17 @@ const sckjTranslations = {
     //Potfolio
     nossos_projetos: 'Nossos Projetos',
     conheca_algumas_solucoes: 'Conheça algumas das soluções digitais desenvolvidas pela SCKJ.',
+    portfolio_no_image: 'Sem imagem disponível',
+    portfolio_view_demo: 'Ver demonstração',
+    portfolio_empty_title: 'Ainda não existem projetos publicados.',
+    portfolio_empty_desc: 'Em breve apresentaremos os nossos projetos.',
     // Footer
     footer_desc: 'A SCKJ é uma empresa especializada em prestação de serviços e comércio geral: legalização e criação de empresas, tratamento documental, criação de sistemas empresariais e fornecimento corporativo.',
     footer_nav_title: 'Navegação',
     footer_srv_title: 'Serviços & Soluções',
     footer_contact_title: 'Contactos',
+    offcanvas_follow: 'Siga-nos',
+    footer_location: 'Luanda, Angola',
     footer_copy: '© 2026 SCKJ - Prestação de Serviços & Comércio Geral. Todos os direitos reservados.'
   },
 
@@ -201,6 +224,8 @@ const sckjTranslations = {
     lang_name: 'English',
     lang_flag: '/assets/img/flags/en.svg',
     lang_code: 'EN',
+    meta_title: 'SCKJ - Corporate Services & General Commerce',
+    meta_desc: 'SCKJ - Integrated corporate solutions: company formation and legalization, document management, software development and general commerce.',
 
     // Navigation
     nav_home: 'Home',
@@ -326,10 +351,25 @@ const sckjTranslations = {
     step4_title: 'Delivery & Ongoing Support',
     step4_desc: 'Delivery of all finalized legal certificates, staff training on the new software system, and ongoing customer support.',
 
+    // Our Values / Pillars
+    values_badge: 'Our Values',
+    values_title: 'The Pillars Guiding SCKJ',
+    pillar1_title: 'Confidentiality & Rigor',
+    pillar1_desc: 'We handle your company information and legal processes with absolute discretion and full legal compliance.',
+    pillar2_title: 'Speed Without Bureaucracy',
+    pillar2_desc: 'We speed up document processing and system delivery, reducing waiting times and maximizing your productivity.',
+    pillar3_title: 'Technological Innovation',
+    pillar3_desc: 'We build smart digital tools that simplify your financial, inventory and sales management.',
+    pillar4_title: 'Continuous Partnership',
+    pillar4_desc: 'We do more than deliver services: we build lasting relationships that support your sustainable growth.',
+
     // CTA
     cta_title: 'Ready to Incorporate Your Company or Deploy a Management System?',
     cta_desc: 'Avoid delays and red tape. Contact SCKJ experts today and receive a tailored solution for your business in Angola.',
     cta_btn: 'Talk to a Consultant',
+    cta_point1: 'Quick Responses',
+    cta_point2: 'Dedicated Support',
+    cta_point3: 'No Bureaucracy',
 
     // FAQ Page
     faq_badge: 'Frequently Asked Questions',
@@ -382,12 +422,18 @@ const sckjTranslations = {
     //Portfolio
     nossos_projetos: 'Our Projects',
     conheca_algumas_solucoes: 'Discover some of the digital solutions developed by SCKJ.',
+    portfolio_no_image: 'No image available',
+    portfolio_view_demo: 'View demo',
+    portfolio_empty_title: 'No projects have been published yet.',
+    portfolio_empty_desc: 'We will present our projects soon.',
 
     // Footer
     footer_desc: 'SCKJ is a premier corporate services and general commerce company: business legalization, document management, software development, and corporate supplies.',
     footer_nav_title: 'Navigation',
     footer_srv_title: 'Services & Solutions',
     footer_contact_title: 'Contact Info',
+    offcanvas_follow: 'Follow Us',
+    footer_location: 'Luanda, Angola',
     footer_copy: '© 2026 SCKJ - Corporate Services & General Commerce. All rights reserved.'
   },
 
@@ -395,6 +441,8 @@ const sckjTranslations = {
     lang_name: '中文',
     lang_flag: '/assets/img/flags/zh.svg',
     lang_code: 'ZH',
+    meta_title: 'SCKJ - 综合服务与商贸',
+    meta_desc: 'SCKJ - 一站式企业解决方案：公司注册与合规化、文件处理、系统开发及综合商贸。',
 
     // Navigation
     nav_home: '首页',
@@ -520,10 +568,25 @@ const sckjTranslations = {
     step4_title: '成果交付与后续支持',
     step4_desc: '全套合法证件移交，或系统上线培训及后期维护，全方位护航企业长期发展。',
 
+    // 我们的价值观 / 支柱
+    values_badge: '我们的价值观',
+    values_title: '指导 SCKJ 行动的支柱',
+    pillar1_title: '保密与严谨',
+    pillar1_desc: '我们以绝对保密和完全合规的方式处理贵公司的信息及法律事务。',
+    pillar2_title: '快速无官僚作风',
+    pillar2_desc: '我们加快证件办理与系统交付，减少等待时间，提升您的生产效率。',
+    pillar3_title: '技术创新',
+    pillar3_desc: '我们开发智能数字工具，简化您的财务、库存与销售管理。',
+    pillar4_title: '持续合作',
+    pillar4_desc: '我们不仅提供服务，更建立长期伙伴关系，助力贵公司可持续发展。',
+
     // CTA
     cta_title: '准备开办新公司或开发企业管理系统？',
     cta_desc: '拒绝拖延与官僚流程。立即联系 SCKJ 专业团队，获取专为您企业定制的高效解决方案。',
     cta_btn: '联系专业顾问',
+    cta_point1: '快速回复',
+    cta_point2: '专属支持',
+    cta_point3: '无繁文缛节',
 
     // FAQ Page
     faq_badge: '常见问题解答',
@@ -578,12 +641,18 @@ const sckjTranslations = {
      //Portfolio
     nossos_projetos: '我们的项目',
     conheca_algumas_solucoes: '探索由 SCKJ 开发的部分数字解决方案。',
+    portfolio_no_image: '暂无图片',
+    portfolio_view_demo: '查看演示',
+    portfolio_empty_title: '尚未发布项目。',
+    portfolio_empty_desc: '我们将很快展示我们的项目。',
 
     // Footer
     footer_desc: 'SCKJ 是专注于安哥拉企业综合服务与商贸的专业企业：公司设立注册、证件办理、企业系统开发及企业物资采购。',
     footer_nav_title: '快捷导航',
     footer_srv_title: '服务与业务',
     footer_contact_title: '联系方式',
+    offcanvas_follow: '关注我们',
+    footer_location: '罗安达，安哥拉',
     footer_copy: '© 2026 SCKJ - 综合服务与商贸. 保留所有权利。'
   }
 };
@@ -619,13 +688,75 @@ bilinguePtZh.lang_code = 'PT/ZH';
 bilinguePtZh.lang_flag = '/assets/img/flags/pt_zh.svg';
 sckjTranslations.pt_zh = bilinguePtZh;
 
+let appliedLanguage = null;
+
+// Um elemento visível serve de âncora visual: manter esse ponto no ecrã evita o
+// "salto" causado pela mudança de altura dos textos traduzidos.
+function captureViewportAnchor() {
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  const targetY = Math.round(viewportHeight * 0.3);
+  const offsetsY = [0, -80, 80, -160, 160, -320, 320];
+  const offsetsX = [0, -40, 40, -120, 120];
+
+  for (const offsetY of offsetsY) {
+    for (const offsetX of offsetsX) {
+      const x = Math.max(1, Math.min(viewportWidth - 1, Math.round(viewportWidth / 2) + offsetX));
+      const y = Math.max(1, Math.min(viewportHeight - 1, targetY + offsetY));
+      let el = document.elementFromPoint(x, y);
+
+      if (!el || el === document.documentElement) {
+        continue;
+      }
+
+      while (el && el !== document.body) {
+        if (el.closest('.vl-lang-dropdown, .vl-offcanvas')) {
+          break;
+        }
+
+        if (el.matches('[data-i18n], [data-i18n-values], section, article, main, [id], .container')) {
+          const rect = el.getBoundingClientRect();
+          if (rect.width > 0 && rect.height > 0) {
+            return {
+              element: el,
+              viewportTop: rect.top,
+            };
+          }
+          break;
+        }
+
+        el = el.parentElement;
+      }
+    }
+  }
+
+  return null;
+}
+
+function restoreViewportAnchor(anchor, fallbackScrollY) {
+  let target = fallbackScrollY;
+
+  if (anchor && anchor.element && anchor.element.isConnected) {
+    const rect = anchor.element.getBoundingClientRect();
+    target = rect.top + window.scrollY - anchor.viewportTop;
+  }
+
+  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  window.scrollTo(window.scrollX, Math.max(0, Math.min(target, maxScroll)));
+  // Confirma a posição depois do browser processar o novo layout.
+  window.scrollTo(window.scrollX, Math.max(0, Math.min(target, maxScroll)));
+}
+
 function setLanguage(lang) {
   if (!sckjTranslations[lang]) {
     lang = 'pt';
   }
-  
+
   localStorage.setItem('sckj_lang', lang);
   document.documentElement.lang = lang;
+  // Mantém o estado do servidor em sincronia para o handler "load" não reverter a troca.
+  window.SITE_LANG = lang;
+  appliedLanguage = lang;
 
   const t = sckjTranslations[lang];
 
@@ -650,22 +781,135 @@ function setLanguage(lang) {
   // Translate all elements with data-i18n
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) {
+    if (t[key] === undefined) {
+      return;
+    }
+
+    const attr = el.getAttribute('data-i18n-attr');
+    if (attr) {
+      el.setAttribute(attr, t[key]);
+    } else {
       el.innerHTML = t[key];
     }
   });
 
-  // Translate placeholders
-  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
-    const key = el.getAttribute('data-i18n-ph');
+  // Translate placeholders (data-i18n-ph e o alias data-i18n-placeholder)
+  document.querySelectorAll('[data-i18n-ph], [data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph') || el.getAttribute('data-i18n-placeholder');
     if (t[key] !== undefined) {
       el.placeholder = t[key];
     }
+  });
+
+  // Translate title attributes when needed.
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const key = el.getAttribute('data-i18n-title');
+    if (t[key] !== undefined) {
+      el.title = t[key];
+    }
+  });
+
+  // Textos vindos do servidor/BD: cada elemento traz os valores por idioma.
+  document.querySelectorAll('[data-i18n-values]').forEach(el => {
+    let values;
+    try {
+      values = JSON.parse(el.getAttribute('data-i18n-values'));
+    } catch (e) {
+      return;
+    }
+
+    const value = values[lang] ?? values.pt ?? '';
+    const attr = el.getAttribute('data-i18n-attr');
+    if (attr === 'textContent') {
+      el.textContent = value;
+    } else if (attr) {
+      el.setAttribute(attr, value);
+    } else {
+      el.innerHTML = value;
+    }
+  });
+}
+
+// Idioma inicial: o da sessão serve de fonte principal; localStorage é fallback.
+function applyStoredLanguage() {
+  const storedLang = localStorage.getItem('sckj_lang');
+  const serverLang = window.SITE_LANG;
+  const initialLang = sckjTranslations[serverLang]
+    ? serverLang
+    : (sckjTranslations[storedLang] ? storedLang : 'pt');
+
+  localStorage.setItem('sckj_lang', initialLang);
+  if (appliedLanguage === initialLang) {
+    return; // Já aplicado no DOM; voltar a traduzir faria o conteúdo "saltar".
+  }
+  setLanguage(initialLang);
+}
+
+// Troca de idioma sem reload: o endpoint /idioma/{locale}/json guarda a sessão
+// e o DOM é traduzido localmente com o dicionário acima.
+function bindLanguageSwitchers() {
+  if (!window.fetch) {
+    return; // Sem fetch, os links normais continuam a funcionar (fallback).
+  }
+
+  document.querySelectorAll('a[href*="/idioma/"]').forEach(function (link) {
+    if (!link.closest('.vl-lang-dropdown, .vl-offcanvas-lang')) {
+      return;
+    }
+
+    const match = link.getAttribute('href').match(/\/idioma\/([a-z_]+)/i);
+    if (!match || !sckjTranslations[match[1]]) {
+      return;
+    }
+
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      const locale = match[1];
+      if (locale === document.documentElement.lang) {
+        return;
+      }
+
+      const href = link.getAttribute('href');
+      const scrollY = window.scrollY;
+      const anchor = captureViewportAnchor();
+      const root = document.documentElement;
+
+      // Só durante esta troca: desactiva scroll suave e âncora automática do browser.
+      root.classList.add('sckj-language-switching');
+
+      window.fetch(href + '/json', {
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('Falha ao guardar o idioma');
+        }
+        return response.json();
+      }).then(function () {
+        setLanguage(locale);
+        try {
+          restoreViewportAnchor(anchor, scrollY);
+        } finally {
+          // Remove na mesma tarefa para o layout seguinte já usar scroll normal.
+          void document.body.offsetHeight;
+          root.classList.remove('sckj-language-switching');
+        }
+      }).catch(function () {
+        root.classList.remove('sckj-language-switching');
+        // Fallback funcional se o pedido falhar.
+        window.location.assign(href);
+      });
+    });
   });
 }
 
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', function () {
-  const savedLang = localStorage.getItem('sckj_lang') || 'pt';
-  setLanguage(savedLang);
+  applyStoredLanguage();
+  bindLanguageSwitchers();
 });
+
+window.sckjApplyStoredLanguage = applyStoredLanguage;
+window.sckjSetLanguage = setLanguage;

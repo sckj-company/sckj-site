@@ -1,3 +1,9 @@
+@php
+    $rodapeDescricao = i18n_values(fn () => conteudo('geral.rodape.descricao'));
+    $rodapeTelefone = i18n_values(fn () => conteudo('geral.rodape.telefone', '+244 923 000 000'), ' / ');
+    $rodapeEmail = i18n_values(fn () => conteudo('geral.rodape.email', 'sckj2026@gmail.com'), ' / ');
+    $rodapeLocalizacao = i18n_values(fn () => conteudo('Localização.localizacao', 'Luanda, Angola'), ' / ');
+@endphp
 
 <!--===== FOOTER AREA STARTS =======-->
 <div class="vl-footer1-section-area sp8">
@@ -7,7 +13,7 @@
         <div class="footer-logo1">
           <img src="{{asset('assets/img/logo/logo2.png')}}" alt="SCKJ Logo">
           <div class="space16"></div>
-          <p>{!! nl2br(e(conteudo('geral.rodape.descricao'))) !!}</p>
+          <p data-i18n-values='@json($rodapeDescricao)'>{!! nl2br($rodapeDescricao['pt']) !!}</p>
        
           <div class="space24"></div>
           <ul>
@@ -27,9 +33,11 @@
             <li><a href="{{route('home')}}" data-i18n="nav_home">Início</a></li>
             <li><a href="{{route('about')}}" data-i18n="nav_about">Sobre Nós</a></li>
             <li><a href="{{route('services')}}" data-i18n="nav_services">Serviços</a></li>
-            <li><a href="{{route('commerce')}}" data-i18n="nav_commerce">Comércio Geral</a></li>
+            <!--<li><a href="{{route('commerce')}}" data-i18n="nav_commerce">Comércio Geral</a></li>-->
             <li><a href="{{route('faq')}}" data-i18n="nav_faq">FAQ</a></li>
             <li><a href="{{route('contacts')}}" data-i18n="nav_contact">Contactos</a></li>
+            <li><a href="{{route('portfolio.index')}}" data-i18n="nav_portfolio">Portfólio</a></li>
+
           </ul>
         </div>
       </div> 
@@ -40,7 +48,8 @@
         <h3 data-i18n="footer_srv_title">Serviços & Soluções</h3>
         <ul>
           @foreach ($servicosPublicados as $servico)
-            <li><a href="{{ route('services') }}">{{ $servico->titulo() }}</a></li>
+            @php($tituloServico = i18n_values(fn () => $servico->titulo(), ' / '))
+            <li><a href="{{ route('services') }}" data-i18n-values='@json($tituloServico)' data-i18n-attr="textContent">{{ $tituloServico['pt'] }}</a></li>
           @endforeach
         </ul>
           
@@ -55,21 +64,21 @@
            <li>
               <a href="{{ route('contacts') }}">
                   <img src="{{ asset('assets/img/icons/phn1.svg') }}" 
-                  alt="">{{ conteudo('geral.rodape.telefone', '+244 923 000 000') }}
+                  alt=""><span data-i18n-values='@json($rodapeTelefone)' data-i18n-attr="textContent">{{ $rodapeTelefone['pt'] }}</span>
               </a>
           </li>
 
           <li>
               <a href="{{ route('contacts') }}">
                   <img src="{{ asset('assets/img/icons/email1.svg') }}" 
-                  alt="">{{ conteudo('geral.rodape.email', 'geral@sckj.co.ao') }}
+                  alt=""><span data-i18n-values='@json($rodapeEmail)' data-i18n-attr="textContent">{{ $rodapeEmail['pt'] }}</span>
               </a>
          </li>
 
          <li>
           <a href="{{ route('contacts') }}">
             <img src="{{ asset('assets/img/icons/location1.svg') }}"
-            alt="">{{ conteudo('Localização.localizacao', 'Luanda, Angola') }}
+            alt=""><span data-i18n-values='@json($rodapeLocalizacao)' data-i18n-attr="textContent">{{ $rodapeLocalizacao['pt'] }}</span>
           </a>
         </li>
           

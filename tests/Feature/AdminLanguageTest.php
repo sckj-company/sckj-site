@@ -123,4 +123,23 @@ class AdminLanguageTest extends TestCase
     {
         $this->get(route('idioma', 'fr'))->assertNotFound();
     }
+
+    public function test_json_language_switch_stores_locale_and_returns_json(): void
+    {
+        $response = $this->getJson(route('idioma.json', 'en'));
+
+        $response
+            ->assertOk()
+            ->assertExactJson(['locale' => 'en'])
+            ->assertSessionHas('locale', 'en');
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee('lang="en"', false);
+    }
+
+    public function test_json_language_switch_rejects_unsupported_locale(): void
+    {
+        $this->getJson(route('idioma.json', 'fr'))->assertNotFound();
+    }
 }

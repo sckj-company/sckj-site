@@ -3,7 +3,11 @@
 @section('title', 'contacts')
 
 @section('content')
-  
+@php
+    $horario = i18n_values(fn () => conteudo('Horário.horario'));
+    $altAtendimento = imagem_alt_i18n('home.atendimento');
+    $altFala = imagem_alt_i18n('Contactos.fala');
+@endphp
 
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-page-hero-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
@@ -41,7 +45,7 @@
                             </div>
                             <div class="content">
                                 <h4 data-i18n="contact_email_title">E-mail</h4>
-                                <a href="mailto:geral@sckj.co.ao">geral@sckj.co.ao</a>
+                                <a href="mailto:sckj2026@gmail.com">sckj2026@gmail.com</a>
                             </div>
                         </div>
                         <div class="space30 d-lg-none d-block"></div>
@@ -67,7 +71,7 @@
                             </div>
                             <div class="content">
                                 <h4 data-i18n="contact_time_title">Horário de Atendimento</h4>
-                                <a>{!! nl2br(e(conteudo('Horário.horario'))) !!}</a>
+                                <a data-i18n-values='@json($horario)'>{!! nl2br($horario['pt']) !!}</a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +80,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="img1 reveal image-anime">
-                            <img src="{{imagem('home.atendimento','assets/img/all-images/others/others-img2.png?v=2')}}" alt="{{ imagem_alt('home.atendimento'),"SCKJ Atendimento ao Cliente"}}">
+                            <img loading="lazy" src="{{imagem('home.atendimento','assets/img/all-images/others/others-img2.png?v=2')}}" alt="{{ $altAtendimento['pt'] }}" data-i18n-values='@json($altAtendimento)' data-i18n-attr="alt">
                           </div>
                     </div>
 
@@ -211,12 +215,12 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-             <img src="{{imagem('Contactos.fala','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ imagem_alt('Contactos.fala'),"SCKJ Atendimento"}}">
+             <img loading="lazy" src="{{imagem('Contactos.fala','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altFala['pt'] }}" data-i18n-values='@json($altFala)' data-i18n-attr="alt">
           </div>
           <ul class="aniamtion-key-1">
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Respostas Rápidas</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Apoio Dedicado</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Sem Burocracia</a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point1">Respostas Rápidas</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point2">Apoio Dedicado</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point3">Sem Burocracia</span></a></li>
           </ul>
         </div>
       </div>

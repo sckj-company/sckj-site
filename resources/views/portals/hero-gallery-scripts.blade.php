@@ -12,7 +12,6 @@
     }
 
     const syncTargets = Array.from(hero.querySelectorAll('[data-gallery-sync]'));
-    const brand = gallery.querySelector('.hero-gallery__brand');
     const progress = hero.querySelector('.hero-gallery__progress');
     const dotsWrap = hero.querySelector('.hero-gallery__dots');
     const prevButton = hero.querySelector('.hero-gallery__nav--prev');
@@ -106,12 +105,6 @@
             target.classList.add('is-changing');
           }
         });
-      }
-
-      if (animate && brand && !skipAnimation) {
-        brand.classList.remove('is-flashing');
-        void brand.offsetWidth;
-        brand.classList.add('is-flashing');
       }
     }
 

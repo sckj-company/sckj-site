@@ -4,6 +4,10 @@
 @section('title', 'Nosso Portfólio - SCKJ')
 
 @section('content')
+@php
+    $altFala = imagem_alt_i18n('Serviço.fala');
+@endphp
+
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-page-hero-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
     @include('portals.hero-gallery')
@@ -30,7 +34,7 @@
         </p>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-4 equal-cards-row">
 
         @forelse($portfolios as $portfolio)
 
@@ -39,7 +43,7 @@
                 <div class="card h-100 shadow-sm border-0">
 
                     @if($portfolio->image)
-                        <img
+                        <img loading="lazy"
                             src="{{ asset('storage/' . $portfolio->image) }}"
                             class="card-img-top"
                             alt="{{ $portfolio->title }}"
@@ -48,7 +52,7 @@
                     @else
                         <div class="bg-light d-flex align-items-center justify-content-center"
                              style="height: 220px;">
-                            <span class="text-muted">
+                            <span class="text-muted" data-i18n="portfolio_no_image">
                                 Sem imagem disponível
                             </span>
                         </div>
@@ -83,7 +87,7 @@
                                target="_blank"
                                rel="noopener noreferrer"
                                class="btn btn-primary w-100">
-                                Ver demonstração
+                                <span data-i18n="portfolio_view_demo">Ver demonstração</span>
                             </a>
                         @endif
 
@@ -95,8 +99,8 @@
         @empty
 
             <div class="col-12 text-center py-5">
-                <h4>Ainda não existem projetos publicados.</h4>
-                <p class="text-muted">
+                <h4 data-i18n="portfolio_empty_title">Ainda não existem projetos publicados.</h4>
+                <p class="text-muted" data-i18n="portfolio_empty_desc">
                     Em breve apresentaremos os nossos projetos.
                 </p>
             </div>
@@ -129,13 +133,13 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-             <img src="{{imagem('Serviço.fala','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ imagem_alt('Serviço.fala'),"SCKJ Atendimento"}}">
+             <img loading="lazy" src="{{imagem('Serviço.fala','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altFala['pt'] }}" data-i18n-values='@json($altFala)' data-i18n-attr="alt">
             
           </div>
           <ul class="aniamtion-key-1">
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Respostas Rápidas</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Apoio Dedicado</a></li>
-            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt="">Sem Burocracia</a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point1">Respostas Rápidas</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point2">Apoio Dedicado</span></a></li>
+            <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point3">Sem Burocracia</span></a></li>
           </ul>
         </div>
       </div>

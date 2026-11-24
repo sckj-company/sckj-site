@@ -113,11 +113,11 @@
             <div class="space20"></div>
             <span><a href="tel:+244923000000"><i class="fa-solid fa-phone"></i> +244 923 000 000</a></span>
             <span><a href="mailto:geral@sckj.co.ao"><i class="fa-regular fa-envelope"></i> geral@sckj.co.ao</a></span>
-            <span><a href="{{route('contacts')}}"><i class="fa-solid fa-location-dot"></i> Luanda, Angola</a></span>
+            <span><a href="{{route('contacts')}}"><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_location">Luanda, Angola</span></a></span>
         </div>
         <div class="space20"></div>
         <div class="vl-offcanvas-social">
-            <h3 class="vl-offcanvas-sm-title">Siga-nos</h3>
+            <h3 class="vl-offcanvas-sm-title" data-i18n="offcanvas_follow">Siga-nos</h3>
             <div class="space20"></div>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
