@@ -84,17 +84,17 @@
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
             
-                <img loading="lazy" src="{{ imagem('home.banner', 'assets/img/all-images/about/about-img1.png')}}" alt="{{ $altBanner['pt'] }}" data-i18n-values='@json($altBanner)' data-i18n-attr="alt">
+                <img loading="lazy" src="{{ imagem('home.banner', 'assets/img/all-images/about/About1-img001.jpeg')}}" alt="{{ $altBanner['pt'] }}" data-i18n-values='@json($altBanner)' data-i18n-attr="alt">
               </div>
               <div class="space30 d-lg-none d-block"></div>
             </div>
             <div class="col-lg-6 col-md-6">
               <div class="img1 image-anime reveal">
-                <img loading="lazy" src="{{imagem('home.segunda','assets/img/all-images/about/about-img2.png')}}" alt="{{ $altSegunda['pt'] }}" data-i18n-values='@json($altSegunda)' data-i18n-attr="alt">
+                <img loading="lazy" src="{{imagem('home.segunda','assets/img/all-images/about/about-img002.jpeg')}}" alt="{{ $altSegunda['pt'] }}" data-i18n-values='@json($altSegunda)' data-i18n-attr="alt">
               </div>
               <div class="space30"></div>
               <div class="img1 image-anime reveal">
-                <img loading="lazy" src="{{imagem('home.terceiro', 'assets/img/all-images/about/about-img3.png')}}" alt="{{ $altTerceiro['pt'] }}" data-i18n-values='@json($altTerceiro)' data-i18n-attr="alt">
+                <img loading="lazy" src="{{imagem('home.terceiro', 'assets/img/all-images/about/about-imagem003.png')}}" alt="{{ $altTerceiro['pt'] }}" data-i18n-values='@json($altTerceiro)' data-i18n-attr="alt">
               </div>
             </div>
           </div>
@@ -470,7 +470,7 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-            <img loading="lazy" src="{{imagem('home.falar','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altFalar['pt'] }}" data-i18n-values='@json($altFalar)' data-i18n-attr="alt">
+            <img loading="lazy" src="{{imagem('home.falar','assets/img/all-images/cta/cta-img2.png')}}" alt="{{ $altFalar['pt'] }}" data-i18n-values='@json($altFalar)' data-i18n-attr="alt">
           </div>
           <ul class="aniamtion-key-1">
             <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point1">Respostas Rápidas</span></a></li>

@@ -224,7 +224,7 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-             <img loading="lazy" src="{{imagem('Serviço.fala','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altFala['pt'] }}" data-i18n-values='@json($altFala)' data-i18n-attr="alt">
+             <img loading="lazy" src="{{imagem('Serviço.fala','assets/img/all-images/cta/cta-img2.png')}}" alt="{{ $altFala['pt'] }}" data-i18n-values='@json($altFala)' data-i18n-attr="alt">
             
           </div>
           <ul class="aniamtion-key-1">

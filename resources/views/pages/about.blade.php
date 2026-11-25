@@ -221,7 +221,7 @@
       <div class="col-lg-4">
         <div class="cta-images">
           <div class="img1">
-            <img loading="lazy" src="{{imagem('Sobre.Nós5','assets/img/all-images/cta/cta-img1.png')}}" alt="{{ $altAtendimento['pt'] }}" data-i18n-values='@json($altAtendimento)' data-i18n-attr="alt">
+            <img loading="lazy" src="{{imagem('Sobre.Nós5','assets/img/all-images/cta/cta-img2.png')}}" alt="{{ $altAtendimento['pt'] }}" data-i18n-values='@json($altAtendimento)' data-i18n-attr="alt">
           </div>
           <ul class="aniamtion-key-1">
             <li><a href="{{route('contacts')}}"><img src="{{asset('assets/img/icons/check5.svg')}}" alt=""><span data-i18n="cta_point1">Respostas Rápidas</span></a></li>

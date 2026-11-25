@@ -15,17 +15,17 @@ class SiteImageSeeder extends Seeder
     {
         // [chave, página, rótulo, imagem original (dentro de public/), largura, altura, alt PT, alt EN, alt ZH]
         $imagens = [
-            ['home.banner', 'home', 'Banner da página incial', 'assets/img/all-images/hero/hero-img1.png', 1920, 800,
+            ['home.banner', 'home', 'Banner da página incial', 'assets/img/all-images/about/About1-img001.jpeg', 1920, 800,
                 'Equipa da SCKJ a atender um cliente',
                 'SCKJ team assisting a client',
                 'SCKJ 团队为客户提供服务'],
 
-                 ['home.segunda', 'home', 'Banner da página inicial', 'assets/img/all-images/about/about-img2.png', 1920, 800,
+                 ['home.segunda', 'home', 'Banner da página inicial', 'assets/img/all-images/about/about-img002.jpeg', 1920, 800,
                 'Equipa da SCKJ a atender um cliente',
                 'SCKJ team assisting a client',
                 'SCKJ 团队为客户提供服务'],
 
-                 ['home.terceiro', 'home', 'Banner da página inicial', 'assets/img/all-images/about/about-img3.png', 1920, 800,
+                 ['home.terceiro', 'home', 'Banner da página inicial', 'assets/img/all-images/about/about-imagem003.png', 1920, 800,
                 'Equipa da SCKJ a atender um cliente',
                 'SCKJ team assisting a client',
                 'SCKJ 团队为客户提供服务'],
@@ -45,7 +45,7 @@ class SiteImageSeeder extends Seeder
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],
 
-                ['home.falar', 'home', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img1.png', 1920, 800,
+                ['home.falar', 'home', 'Falar com um Consultor', 'assets/img/all-images/cta/cta-img2.png', 1920, 800,
                 'Pronto Para Criar a Sua Empresa ou Implementar um Sistema de Gestão?',
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],
@@ -76,28 +76,28 @@ class SiteImageSeeder extends Seeder
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],
 
-                ['Sobre.Nós5', 'sobre', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img1.png', 1920, 800,
+                ['Sobre.Nós5', 'sobre', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img2.png', 1920, 800,
                 'Pronto Para Criar a Sua Empresa ou Implementar um Sistema de Gestão?',
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],
 
                 //Serviço
-                ['Serviço.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img1.png', 1920, 800,
+                ['Serviço.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img2.png', 1920, 800,
                 'Pronto Para Criar a Sua Empresa ou Implementar um Sistema de Gestão?',
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],
                 //Comercio
-                ['Comercio.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img1.png', 1920, 800,
+                ['Comercio.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img2.png', 1920, 800,
                 'Pronto Para Criar a Sua Empresa ou Implementar um Sistema de Gestão?',
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],
                //FAQ
-                ['FAQ.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img1.png', 1920, 800,
+                ['FAQ.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img2.png', 1920, 800,
                 'Pronto Para Criar a Sua Empresa ou Implementar um Sistema de Gestão?',
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],
                 //Contactos
-                ['Contactos.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img1.png', 1920, 800,
+                ['Contactos.fala', 'services', 'Falar com um Consultor', 'assets/img/all-images//cta/cta-img2.png', 1920, 800,
                 'Pronto Para Criar a Sua Empresa ou Implementar um Sistema de Gestão?',
                 'A Clear, Fast, and Bureaucracy-Free Process.',
                 '清晰、快捷且无官僚作风的流程。'],

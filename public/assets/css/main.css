@@ -4493,16 +4493,25 @@ Location:
   position: relative;
   z-index: 1;
   padding: 200px 0 100px;
+  /* Mesma altura do hero da home, para o carrossel ter sempre o mesmo tamanho. */
+  min-height: 828px;
   overflow: hidden;
 }
 @media (max-width: 767px) {
   .inner-page-hero-area {
     padding: 160px 0 100px;
+    min-height: 1012px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .inner-page-hero-area {
     padding: 160px 0 100px;
+    min-height: 926px;
+  }
+}
+@media (max-width: 575px) {
+  .inner-page-hero-area {
+    min-height: 1114px;
   }
 }
 .inner-page-hero-area .elements5 {
