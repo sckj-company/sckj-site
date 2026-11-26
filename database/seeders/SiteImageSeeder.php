@@ -111,7 +111,7 @@ class SiteImageSeeder extends Seeder
            
 
         foreach ($imagens as [$chave, $pagina, $rotulo, $padrao, $largura, $altura, $altPt, $altEn, $altZh]) {
-            SiteImage::firstOrCreate(
+            SiteImage::updateOrCreate(
                 ['chave' => $chave],
                 [
                     'pagina'      => $pagina,
