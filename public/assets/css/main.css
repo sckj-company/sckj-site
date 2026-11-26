@@ -4511,6 +4511,16 @@ Location:
 }
 @media (max-width: 575px) {
   .inner-page-hero-area {
+    min-height: 1012px;
+  }
+}
+@media (max-width: 500px) {
+  .inner-page-hero-area {
+    min-height: 1042px;
+  }
+}
+@media (max-width: 426px) {
+  .inner-page-hero-area {
     min-height: 1114px;
   }
 }
@@ -13821,6 +13831,13 @@ Location:
   background-color: #041220;
 }
 
+.hero-gallery__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero-gallery__slide {
   inset: -3%;
   z-index: 0;
@@ -13864,7 +13881,7 @@ Location:
   top: clamp(24px, 6%, 44px);
   right: clamp(16px, 3vw, 40px);
   width: clamp(96px, 11vw, 140px);
-  /* Camada fixa: não intercepta cliques e não sofre repaint ao trocar de slide. */
+  /* Camada fixa: não intercepta cliques e não sofre repaint. */
   pointer-events: none;
   will-change: transform;
   transform: translateZ(0);
@@ -13876,8 +13893,6 @@ Location:
   height: auto;
   filter: brightness(0) invert(1) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
 }
-
-/* O logótipo é único e não recebe fade/opacity: as transições afectam só as fotos. */
 
 .hero-gallery__controls {
   position: absolute;

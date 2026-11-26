@@ -12,7 +12,7 @@
 
     <!--===== FAB ICON =======-->
     <link rel="shortcut icon" href="{{asset('assets/img/logo/fav-logo1.png')}}" type="image/x-icon">
-    <!-- Logótipo do carrossel: pré-carregado para não piscar nas trocas de slide. -->
+    <!-- Logótipo do site: pré-carregado para não piscar na abertura da página. -->
     <link rel="preload" as="image" href="{{ asset('assets/img/logo/logo1.png') }}">
 
     <!--===== CSS LINK =======-->
